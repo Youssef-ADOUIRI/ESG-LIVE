@@ -1,0 +1,21 @@
+.Headeresg__container {
+    width: 370px;
+    text-align: center;
+    padding: 55px;
+    transition: transform .4s ease;
+    background-color: #1B91BF;
+    color: #F2F2F2;
+    margin: 0;
+}
+
+.Headeresg__container__logoesg {
+    width: 175px;
+}
+
+
+.Headeresg__container>h3 {
+    font-family: 'New Athletic M54', sans-serif;
+    font-size: 30px;
+    font-weight: 200px;
+    margin-top: 100px;
+}
