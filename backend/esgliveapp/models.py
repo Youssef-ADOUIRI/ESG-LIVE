@@ -33,4 +33,4 @@ class CollectiveMatch(models.Model):
     collectiveMatchDesc = models.CharField(max_length=200)
     sport = models.CharField(max_length=40 , blank=False)
     def __str__(self):
-        return "%s %s %s" % (self.sport, self.collectivePhase, self.collectiveTeamA ,self.collectiveScoreA, self.collectiveTeamB,self.collectiveScoreB , self.collectiveMatchDesc)
+        return "%s %s %s %s %s %s %s" % (self.sport, self.collectivePhase, self.collectiveTeamA ,self.collectiveScoreA, self.collectiveTeamB,self.collectiveScoreB , self.collectiveMatchDesc)

@@ -6,8 +6,8 @@ from django.http.response import JsonResponse , HttpResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from esgliveapp.models import Team
-from esgliveapp.serializers import TeamSerializer
+from esgliveapp.models import Team , CollectiveMatch
+from esgliveapp.serializers import TeamSerializer , CollectiveMatchSerializer
 from rest_framework.decorators import api_view
 
 # Create your views here.
@@ -24,13 +24,37 @@ def team_list(request):
 @api_view(['GET'])
 def football_rank(request):
     if request.method == 'GET':
-        teams = Team.objects.all().order_by('nameTeam')
-
+        teams = Team.objects.all()
         teams_serializer = TeamSerializer(teams, many=True)
-        data = json.loads(json.dumps(teams_serializer.data))
+        teams_data = json.loads(json.dumps(teams_serializer.data))
+        
+        
+        #calculate current rankings if any match played
+        if CollectiveMatch.objects.count()>0:
+            all_matchs = CollectiveMatch.objects.all()
+            matches_serializer = CollectiveMatchSerializer(all_matchs, many=True)
+            all_matchs_dict = json.loads(json.dumps(matches_serializer.data))
+            
+            for match in all_matchs_dict :
+                idA = int(match['collectiveTeamA']) -1
+                idB = int(match['collectiveTeamB']) -1
+                
+                if teams_data[idA].get('GS') is not None:
+                    teams_data[idA]['GS'] += match['collectiveScoreA']
+                    teams_data[idA]['MP'] += 1
+                else:
+                    teams_data[idA]['GS'] = match['collectiveScoreA']
+                    teams_data[idA]['MP'] = 1
+                if teams_data[idB].get('GS') is not None:
+                    teams_data[idB]['GS'] += match['collectiveScoreB']
+                    teams_data[idB]['MP'] += 1
+                else:
+                    teams_data[idB]['GS'] = match['collectiveScoreB']
+                    teams_data[idB]['MP'] = 1
+        
 
-        return JsonResponse(teams_serializer.data , safe=False)
-        # 'safe=False' for objects serialization
+        return HttpResponse(json.dumps(teams_data))
+        #'safe=False' for objects serialization
 
 #NAME
 @api_view(['GET'])
