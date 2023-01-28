@@ -6,8 +6,8 @@ from django.http.response import JsonResponse , HttpResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from esgliveapp.models import Team , DetailsMatch
-from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer
+from esgliveapp.models import Team , DetailsMatch ,CollectiveMatch
+from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer,CollectiveMatchSerializer
 from rest_framework.decorators import api_view
 from django.db.models import Count , Sum,F
 
@@ -28,18 +28,20 @@ def global_rank(request):
     return JsonResponse(teams_serializer.data , safe=False)
 
 @api_view(['GET'])
-def football_rank(request):
-    matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam' , 'teamId_id__fullnameTeam').annotate(  
-        team_name = F('teamId_id__nameTeam'),
-        team_fullname = F('teamId_id__fullnameTeam'), 
-        total_goals = Sum('matchId'),
-        match_played = Count('score')
-    ).order_by('match_played').order_by('-total_goals')
-    matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
-    print("\n\n---------------------------------------------------------\n" , json.loads(json.dumps(matchteams_ser.data)), "\n---------------------------------------------------------\n----------------------------------------------------------")
-
-    return JsonResponse(matchteams_ser.data,safe=False)
-        #'safe=False' for objects serialization
+def collective_rank(request , sport ,sexe='m'):
+    if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True):
+        matchteams_data = Team.objects.values('nameTeam' , 'fullnameTeam').annotate(
+            team_name = F('nameTeam'),
+            team_fullname = F('fullnameTeam'), 
+            total_goals = Sum('detailsmatch__matchId'),
+            match_played = Count('detailsmatch__score')
+        ).order_by('match_played').order_by('-total_goals')
+        matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
+        return JsonResponse(matchteams_ser.data,safe=False)
+            #'safe=False' for objects serialization
+    else:
+        #return the list of 
+        return JsonResponse({'message': 'The sport does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
 #NAME
 @api_view(['GET'])

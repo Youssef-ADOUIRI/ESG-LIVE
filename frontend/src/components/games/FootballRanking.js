@@ -6,7 +6,7 @@ const FootballRanking = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const url_football = "http://127.0.0.1:8080/api/football";
+  const url_football = "http://127.0.0.1:8080/api/rank/fb/m";
 
   useEffect(() => {
     setLoading(true);
