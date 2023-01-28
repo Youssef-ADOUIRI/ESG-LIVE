@@ -2,38 +2,25 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const FootballRanking = () => {
+const GlobalRanking = () => {
+  const url_globalRank = "http://127.0.0.1:8080/api/globalrank";
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const url_football = "http://127.0.0.1:8080/api/football";
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get(url_football)
+      .get(url_globalRank)
       .then((res) => {
-        const data_teams = res.data;
-        console.log(data_teams);
-        setTeams(
-          data_teams.sort((a, b) =>
-            a.GS < b.GS
-              ? 1
-              : a.GS === b.GS
-              ? a.nameTeam > b.nameTeam
-                ? 1
-                : -1
-              : -1
-          )
-        );
+        setTeams(res.data);
       })
       .catch((e) => {
         console.log(e);
       });
     setLoading(false);
   }, []);
-
-  if (!loading)
+  console.log(teams);
+  if (!loading && teams.length > 0)
     return (
       <table class="table table-striped" style={{ width: "100%" }}>
         <thead>
@@ -41,8 +28,7 @@ const FootballRanking = () => {
             <th>Rank</th>
             <th>Name</th>
             <th>Full Name</th>
-            <th>GS</th>
-            <th>MP</th>
+            <th>Pts</th>
           </tr>
         </thead>
         <tbody>
@@ -55,8 +41,7 @@ const FootballRanking = () => {
                   {team.fullnameTeam.charAt(0).toUpperCase() +
                     team.fullnameTeam.slice(1)}
                 </td>
-                <td>{team.GS ? team.GS : 0}</td>
-                <td>{team.MP ? team.MP : 0}</td>
+                <td>{team.globalRank}</td>
               </tr>
             );
           })}
@@ -68,4 +53,4 @@ const FootballRanking = () => {
   }
 };
 
-export default FootballRanking;
+export default GlobalRanking;

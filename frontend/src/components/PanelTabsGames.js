@@ -7,7 +7,8 @@ import PropTypes from "prop-types";
 import FootballRanking from "./games/FootballRanking";
 import VolleyballRanking from "./games/VolleyballRanking";
 import BasketballRanking from "./games/BasketballRanking";
-import { borderRight } from "@mui/system";
+import GlobalRanking from "./GlobalRanking";
+import { styled } from "@mui/material/styles";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,6 +43,39 @@ function a11yProps(index) {
   };
 }
 
+const StyledTabs = styled((props) => (
+  <Tabs
+    {...props}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+  />
+))({
+  "& .MuiTabs-indicator": {
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  },
+  "& .MuiTabs-indicatorSpan": {
+    maxWidth: 40,
+    width: "100%",
+    backgroundColor: "#1B91BF",
+  },
+});
+const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+  ({ theme }) => ({
+    textTransform: "none",
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(15),
+    marginRight: theme.spacing(1),
+    color: "rgba(0, 0, 0, 0.7)",
+    "&.Mui-selected": {
+      color: "#1B91BF",
+    },
+    "&.Mui-focusVisible": {
+      backgroundColor: "rgba(100, 95, 228, 0.32)",
+    },
+  })
+);
+
 const PanelTabsGames = () => {
   const [value, setValue] = React.useState(0);
 
@@ -52,15 +86,17 @@ const PanelTabsGames = () => {
   return (
     <Box sx={{ width: "100%", m: "80px" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
+        <StyledTabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
         >
           <Tab label="Football" {...a11yProps(0)} />
-          <Tab label="Basketball" {...a11yProps(1)} />
-          <Tab label="Volleyball" {...a11yProps(2)} />
-        </Tabs>
+          <StyledTab label="Basketball" {...a11yProps(1)} />
+          <StyledTab label="Volleyball" {...a11yProps(2)} />
+          <StyledTab label="Global" {...a11yProps(3)} />
+
+        </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
         <FootballRanking />
@@ -70,6 +106,9 @@ const PanelTabsGames = () => {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <BasketballRanking />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <GlobalRanking />
       </TabPanel>
     </Box>
   );
