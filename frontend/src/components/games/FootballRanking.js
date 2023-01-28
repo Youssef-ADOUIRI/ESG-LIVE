@@ -15,17 +15,7 @@ const FootballRanking = () => {
       .then((res) => {
         const data_teams = res.data;
         console.log(data_teams);
-        setTeams(
-          data_teams.sort((a, b) =>
-            a.GS < b.GS
-              ? 1
-              : a.GS === b.GS
-              ? a.nameTeam > b.nameTeam
-                ? 1
-                : -1
-              : -1
-          )
-        );
+        setTeams(data_teams);
       })
       .catch((e) => {
         console.log(e);
@@ -50,13 +40,13 @@ const FootballRanking = () => {
             return (
               <tr>
                 <td>{i + 1}</td>
-                <td>{team.nameTeam.toUpperCase()}</td>
+                <td>{team.team_name.toUpperCase()}</td>
                 <td>
-                  {team.fullnameTeam.charAt(0).toUpperCase() +
-                    team.fullnameTeam.slice(1)}
+                  {team.team_fullname.charAt(0).toUpperCase() +
+                    team.team_fullname.slice(1)}
                 </td>
-                <td>{team.GS ? team.GS : 0}</td>
-                <td>{team.MP ? team.MP : 0}</td>
+                <td>{team.total_goals ? team.total_goals : 0}</td>
+                <td>{team.match_played ? team.match_played : 0}</td>
               </tr>
             );
           })}

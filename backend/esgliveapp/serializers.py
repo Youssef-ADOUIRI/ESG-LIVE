@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from esgliveapp.models import Team , AthleticsParticipation , AthleticsMatch , CollectiveMatch
+from esgliveapp.models import Team,Player , AthleticsParticipation , AthleticsMatch , CollectiveMatch , DetailsMatch
  
  
 class TeamSerializer(serializers.ModelSerializer):
@@ -12,6 +12,15 @@ class TeamSerializer(serializers.ModelSerializer):
                   'colorteam',
                   'descriptionTeam',
                   'globalRank')
+
+class PlayerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player
+        fields = ('id',
+                  'playerName',
+                  'playerLastName',
+                  'playerAge',
+                  'playerTeam')
 
 class AthleticsParticipationSerializer(serializers.ModelSerializer):
  
@@ -37,9 +46,36 @@ class CollectiveMatchSerializer(serializers.ModelSerializer):
         model = CollectiveMatch
         fields = ('id',
                   'collectivePhase',
-                  'collectiveTeamA',
-                  'collectiveTeamB',
-                  'collectiveScoreA',
-                  'collectiveScoreB',
                   'collectiveMatchDesc',
-                  'sport')
+                  'sport',
+                  'sexe',
+                  'timeLenght',
+                  'refname',
+                  'stage',
+                  'collectiveMatchDate',
+                  'collectiveMatchTime')
+
+class DetailsMatchSerializer(serializers.ModelSerializer):
+ 
+    class Meta:
+        model = DetailsMatch
+        fields = ('id',
+                  'score',
+                  'decidedBy',
+                  'win_lose',
+                  'matchId',
+                  'captainId')
+
+class TeamMatchSerializer(serializers.Serializer):
+    team_name  = serializers.CharField()
+    team_fullname = serializers.CharField()
+    total_goals = serializers.IntegerField()
+    match_played = serializers.IntegerField()
+
+    class Meta:
+        model = Team
+        fields = ('id',
+                'nameTeam',
+                'fullnameTeam',
+                'total_goals',
+                'match_played')

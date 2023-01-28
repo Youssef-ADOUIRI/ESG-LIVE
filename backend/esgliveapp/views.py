@@ -6,9 +6,10 @@ from django.http.response import JsonResponse , HttpResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from esgliveapp.models import Team , CollectiveMatch
-from esgliveapp.serializers import TeamSerializer , CollectiveMatchSerializer
+from esgliveapp.models import Team , DetailsMatch
+from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer
 from rest_framework.decorators import api_view
+from django.db.models import Count , Sum,F
 
 # Create your views here.
 
@@ -28,37 +29,16 @@ def global_rank(request):
 
 @api_view(['GET'])
 def football_rank(request):
+    matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam' , 'teamId_id__fullnameTeam').annotate(  
+        team_name = F('teamId_id__nameTeam'),
+        team_fullname = F('teamId_id__fullnameTeam'), 
+        total_goals = Sum('matchId'),
+        match_played = Count('score')
+    ).order_by('match_played').order_by('-total_goals')
+    matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
+    print("\n\n---------------------------------------------------------\n" , json.loads(json.dumps(matchteams_ser.data)), "\n---------------------------------------------------------\n----------------------------------------------------------")
 
-    teams = Team.objects.all().order_by('nameTeam')
-    teams_serializer = TeamSerializer(teams, many=True)
-    teams_data = json.loads(json.dumps(teams_serializer.data))
-        
-        
-    #calculate current rankings if any match played
-    if CollectiveMatch.objects.count()>0:
-        all_matchs = CollectiveMatch.objects.all()
-        matches_serializer = CollectiveMatchSerializer(all_matchs, many=True)
-        all_matchs_dict = json.loads(json.dumps(matches_serializer.data))
-            
-        for match in all_matchs_dict :
-            idA = int(match['collectiveTeamA']) -1
-            idB = int(match['collectiveTeamB']) -1
-                
-            if teams_data[idA].get('GS') is not None:
-                teams_data[idA]['GS'] += match['collectiveScoreA']
-                teams_data[idA]['MP'] += 1
-            else:
-                teams_data[idA]['GS'] = match['collectiveScoreA']
-                teams_data[idA]['MP'] = 1
-            if teams_data[idB].get('GS') is not None:                    
-                teams_data[idB]['GS'] += match['collectiveScoreB']
-                teams_data[idB]['MP'] += 1
-            else:
-                teams_data[idB]['GS'] = match['collectiveScoreB']
-                teams_data[idB]['MP'] = 1
-        
-
-    return HttpResponse(json.dumps(teams_data))
+    return JsonResponse(matchteams_ser.data,safe=False)
         #'safe=False' for objects serialization
 
 #NAME

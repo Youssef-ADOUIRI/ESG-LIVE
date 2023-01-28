@@ -91,24 +91,23 @@ const PanelTabsGames = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Football" {...a11yProps(0)} />
-          <StyledTab label="Basketball" {...a11yProps(1)} />
-          <StyledTab label="Volleyball" {...a11yProps(2)} />
-          <StyledTab label="Global" {...a11yProps(3)} />
-
+          <StyledTab label="GLOBAL" {...a11yProps(0)} />
+          <StyledTab label="FOOTBALL" {...a11yProps(1)} />
+          <StyledTab label="BASKETBALL" {...a11yProps(2)} />
+          <StyledTab label="VOLLEYBALL" {...a11yProps(3)} />
         </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <FootballRanking />
+        <GlobalRanking />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <VolleyballRanking />
+        <FootballRanking />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <BasketballRanking />
+        <VolleyballRanking />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <GlobalRanking />
+        <BasketballRanking />
       </TabPanel>
     </Box>
   );
