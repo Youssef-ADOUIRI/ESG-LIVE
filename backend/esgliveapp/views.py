@@ -35,7 +35,7 @@ def collective_rank(request , sport ,sexe='m'):
             team_fullname = F('fullnameTeam'), 
             total_goals = Sum('detailsmatch__matchId'),
             match_played = Count('detailsmatch__score')
-        ).order_by('match_played').order_by('-total_goals')
+        ).order_by('-match_played').order_by('-total_goals')
         matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
         return JsonResponse(matchteams_ser.data,safe=False)
             #'safe=False' for objects serialization
