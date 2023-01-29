@@ -31,7 +31,7 @@ def global_rank(request):
 def collective_rank(request , sport ,sexe='m'):
     if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True):
         #select_related('teamId','matchId').
-        matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam').filter(matchId_id__sport=sport , matchId_id__sexe=sexe ).annotate(
+        matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam').filter(matchId_id__sport=sport).filter( matchId_id__sexe=sexe ).annotate(
             #sport_matchs = FilteredRelation('detailsmatch__matchId_id' , condition= Q(detailsmatch__matchId_id__sport=sport)),
             team_name = F('teamId_id__nameTeam'),
             team_fullname = F('teamId_id__fullnameTeam'),

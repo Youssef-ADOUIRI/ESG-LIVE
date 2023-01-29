@@ -4,9 +4,6 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
-import FootballRanking from "./games/GameRanking";
-import VolleyballRanking from "./games/VolleyballRanking";
-import BasketballRanking from "./games/BasketballRanking";
 import GlobalRanking from "./GlobalRanking";
 import { styled } from "@mui/material/styles";
 import GameRanking from "./games/GameRanking";
@@ -23,7 +20,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3 , pt:1 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
