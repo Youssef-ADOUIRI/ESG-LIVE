@@ -4,12 +4,21 @@ import axios from "axios";
 
 const FootballRanking = () => {
   const [teams, setTeams] = useState([]);
+  const [allteams, setAllTeams] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [existingTeams, setExistingTeams] = useState();
 
   const url_football = "http://127.0.0.1:8080/api/rank/fb/m";
+  const url_allTeams = "http://127.0.0.1:8080/api/teams";
 
   useEffect(() => {
     setLoading(true);
+    axios
+      .get(url_allTeams)
+      .then((res) => {
+        setAllTeams(res.data);
+      })
+      .catch((e) => console.log(e));
     axios
       .get(url_football)
       .then((res) => {
@@ -49,6 +58,28 @@ const FootballRanking = () => {
                 <td>{team.match_played ? team.match_played : 0}</td>
               </tr>
             );
+          })}
+          {allteams.map((team, i) => {
+            let exist = false;
+            teams.map((t, i) => {
+              if (t.team_name == team.nameTeam) {
+                exist = true;
+              }
+            });
+            if (!exist)
+              return (
+                <tr>
+                  <td>{i + 1}</td>
+                  <td>{team.nameTeam.toUpperCase()}</td>
+                  <td>
+                    {team.fullnameTeam.charAt(0).toUpperCase() +
+                      team.fullnameTeam.slice(1)}
+                  </td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+              );
+            else exist = false;
           })}
         </tbody>
       </table>

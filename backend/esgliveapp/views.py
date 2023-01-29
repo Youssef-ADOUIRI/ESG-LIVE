@@ -30,8 +30,8 @@ def global_rank(request):
 @api_view(['GET'])
 def collective_rank(request , sport ,sexe='m'):
     if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True):
-        matchteams_data = Team.objects.values('nameTeam' , 'fullnameTeam').annotate(
-            sport_matchs = FilteredRelation('detailsmatch__matchId_id' , condition= Q(detailsmatch__matchId_id__sport=sport)),
+        matchteams_data = Team.objects.values('nameTeam' , 'fullnameTeam').filter(detailsmatch__matchId_id__sport=sport).annotate(
+            #sport_matchs = FilteredRelation('detailsmatch__matchId_id' , condition= Q(detailsmatch__matchId_id__sport=sport)),
             team_name = F('nameTeam'),
             team_fullname = F('fullnameTeam'), 
             total_goals = Sum('detailsmatch__matchId'),
