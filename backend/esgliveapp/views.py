@@ -9,7 +9,7 @@ from rest_framework import status
 from esgliveapp.models import Team , DetailsMatch ,CollectiveMatch
 from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer,CollectiveMatchSerializer
 from rest_framework.decorators import api_view
-from django.db.models import Count , Sum,F
+from django.db.models import Count , Sum,F,FilteredRelation ,Q
 
 # Create your views here.
 
@@ -31,10 +31,11 @@ def global_rank(request):
 def collective_rank(request , sport ,sexe='m'):
     if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True):
         matchteams_data = Team.objects.values('nameTeam' , 'fullnameTeam').annotate(
+            sport_matchs = FilteredRelation('detailsmatch__matchId_id' , condition= Q(detailsmatch__matchId_id__sport=sport)),
             team_name = F('nameTeam'),
             team_fullname = F('fullnameTeam'), 
             total_goals = Sum('detailsmatch__matchId'),
-            match_played = Count('detailsmatch__score')
+            match_played = Count('detailsmatch__score'),
         ).order_by('-match_played').order_by('-total_goals')
         matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
         return JsonResponse(matchteams_ser.data,safe=False)
