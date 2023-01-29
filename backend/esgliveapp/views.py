@@ -30,12 +30,13 @@ def global_rank(request):
 @api_view(['GET'])
 def collective_rank(request , sport ,sexe='m'):
     if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True):
-        matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam' , 'teamId_id__fullnameTeam').filter(matchId_id__sport=sport).annotate(
+        #select_related('teamId','matchId').
+        matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam').filter(matchId_id__sport=sport , matchId_id__sexe=sexe ).annotate(
             #sport_matchs = FilteredRelation('detailsmatch__matchId_id' , condition= Q(detailsmatch__matchId_id__sport=sport)),
             team_name = F('teamId_id__nameTeam'),
-            team_fullname = F('teamId_id__fullnameTeam'), 
-            total_goals = Sum('matchId'),
-            match_played = Count('score'),
+            team_fullname = F('teamId_id__fullnameTeam'),
+            total_goals =  Sum('score'),
+            match_played = Count('matchId'),
         ).order_by('-match_played').order_by('-total_goals')
         matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
         return JsonResponse(matchteams_ser.data,safe=False)
