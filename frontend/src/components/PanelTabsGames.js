@@ -4,11 +4,12 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
-import FootballRanking from "./games/FootballRanking";
+import FootballRanking from "./games/GameRanking";
 import VolleyballRanking from "./games/VolleyballRanking";
 import BasketballRanking from "./games/BasketballRanking";
 import GlobalRanking from "./GlobalRanking";
 import { styled } from "@mui/material/styles";
+import GameRanking from "./games/GameRanking";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -101,13 +102,13 @@ const PanelTabsGames = () => {
         <GlobalRanking />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <FootballRanking />
+        <GameRanking sport="fb" />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <VolleyballRanking />
+        <GameRanking sport="vb" />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <BasketballRanking />
+        <GameRanking sport="vb" />
       </TabPanel>
     </Box>
   );

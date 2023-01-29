@@ -2,13 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const FootballRanking = () => {
+const GameRanking = (prop) => {
   const [teams, setTeams] = useState([]);
   const [allteams, setAllTeams] = useState([]);
   const [loading, setLoading] = useState(false);
   const [existingTeams, setExistingTeams] = useState();
-
-  const url_football = "http://127.0.0.1:8080/api/rank/fb/m";
+  let k = 0;
+  const url_football = "http://127.0.0.1:8080/api/rank/" + prop.sport + "/m";
   const url_allTeams = "http://127.0.0.1:8080/api/teams";
 
   useEffect(() => {
@@ -66,10 +66,11 @@ const FootballRanking = () => {
                 exist = true;
               }
             });
-            if (!exist)
+            if (!exist) {
+              k++;
               return (
                 <tr>
-                  <td>{i + 1}</td>
+                  <td>{teams.length + k}</td>
                   <td>{team.nameTeam.toUpperCase()}</td>
                   <td>
                     {team.fullnameTeam.charAt(0).toUpperCase() +
@@ -79,7 +80,7 @@ const FootballRanking = () => {
                   <td>0</td>
                 </tr>
               );
-            else exist = false;
+            } else exist = false;
           })}
         </tbody>
       </table>
@@ -89,4 +90,4 @@ const FootballRanking = () => {
   }
 };
 
-export default FootballRanking;
+export default GameRanking;
