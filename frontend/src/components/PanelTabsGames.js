@@ -105,7 +105,7 @@ const PanelTabsGames = () => {
         <GameRanking sport="fb" />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <GameRanking sport="vb" />
+        <GameRanking sport="bb" />
       </TabPanel>
       <TabPanel value={value} index={3}>
         <GameRanking sport="vb" />

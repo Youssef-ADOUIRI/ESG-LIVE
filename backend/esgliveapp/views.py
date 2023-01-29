@@ -9,7 +9,7 @@ from rest_framework import status
 from esgliveapp.models import Team , DetailsMatch ,CollectiveMatch
 from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer,CollectiveMatchSerializer
 from rest_framework.decorators import api_view
-from django.db.models import Count , Sum,F,FilteredRelation ,Q
+from django.db.models import Count , Sum , F , FilteredRelation , Q
 
 # Create your views here.
 
@@ -42,8 +42,10 @@ def collective_rank(request , sport ,sexe='m'):
         return JsonResponse(matchteams_ser.data,safe=False)
             #'safe=False' for objects serialization
     else:
-        #return the list of 
-        return JsonResponse({'message': 'The sport does not exist'}, status=status.HTTP_404_NOT_FOUND)
+        #return the list of all teams
+        teams = Team.objects.all().order_by('nameTeam')
+        teams_serializer = TeamSerializer(teams, many=True)
+        return JsonResponse(teams_serializer.data , safe=False)
 
 #NAME
 @api_view(['GET'])
