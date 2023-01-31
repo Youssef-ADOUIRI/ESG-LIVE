@@ -15,7 +15,7 @@ const AthleticsGameRanking = () => {
   const [loading, setLoading] = useState(false);
   const [gender, setGender] = useState("m");
   let k = 0;
-  const sport = "crawl";
+  const [sport, setsport] = useState("crawl");
   const url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
   const url_allTeams = "http://127.0.0.1:8080/api/teams";
 
@@ -39,8 +39,8 @@ const AthleticsGameRanking = () => {
     setLoading(false);
   }, [gender, url_sportrank]);
 
-  const onChangeGender = (e) => {
-    setGender(e.target.value);
+  const onChangeSport = (e) => {
+    setsport(e.target.value);
   };
 
   if (!loading)
@@ -50,12 +50,12 @@ const AthleticsGameRanking = () => {
           <RadioGroup
             row
             name="row-controlled-radio-buttons-group"
-            value={gender}
-            onChange={onChangeGender}
+            value={sport}
+            onChange={onChangeSport}
             sx={{ margin: "10px" }}
           >
             <FormControlLabel
-              value="m"
+              value="race1"
               control={
                 <Radio
                   sx={{
@@ -65,10 +65,10 @@ const AthleticsGameRanking = () => {
                   }}
                 />
               }
-              label="Male"
+              label="100m male"
             />
             <FormControlLabel
-              value="f"
+              value="race1f"
               control={
                 <Radio
                   sx={{
@@ -78,7 +78,100 @@ const AthleticsGameRanking = () => {
                   }}
                 />
               }
-              label="Female"
+              label="100m female"
+            />
+
+            <FormControlLabel
+              value="race4"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="400m male"
+            />
+            <FormControlLabel
+              value="race4f"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="400m female"
+            />
+            <FormControlLabel
+              value="racere"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="race relay"
+            />
+
+            <FormControlLabel
+              value="lj"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="long jump male"
+            />
+            <FormControlLabel
+              value="ljf"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="long jump female"
+            />
+            <FormControlLabel
+              value="sp"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="shot put male"
+            />
+            <FormControlLabel
+              value="spf"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="shot put female"
             />
           </RadioGroup>
         </div>
@@ -98,7 +191,6 @@ const AthleticsGameRanking = () => {
           <tbody>
             {teams.length > 0 &&
               teams.map((team, i) => {
-                console.log(team);
                 return (
                   <tr>
                     <td className="p-3">{i + 1}</td>

@@ -98,10 +98,9 @@ const GameRanking = (prop) => {
           <tbody>
             {teams.length > 0 &&
               teams.map((team, i) => {
-                console.log(team);
                 return (
                   <tr>
-                    <td className="p-3">{i + 1}</td>
+                    <td className="p-3 font-weight-bold">{i + 1}</td>
                     <td className="p-3">{team.team_name.toUpperCase()}</td>
                     <td className="p-3 d-none d-sm-table-cell">
                       {team.team_fullname.charAt(0).toUpperCase() +

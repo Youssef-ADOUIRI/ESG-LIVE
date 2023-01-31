@@ -10,6 +10,7 @@ import GameRanking from "./games/GameRanking";
 import AthleticsGameRanking from "./games/AthleticsGameRanking";
 import "./PanelTabsGames.css";
 import SwimingGameRanking from "./games/SwimingGameRanking";
+import TugOfWar from "./games/TugOfWar";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -104,8 +105,9 @@ const PanelTabsGames = () => {
           <StyledTab label="VOLLEYBALL" {...a11yProps(3)} />
           <StyledTab label="SWIMING" {...a11yProps(4)} />
           <StyledTab label="ATHLETICS" {...a11yProps(5)} />
-          <StyledTab label="TENIS" {...a11yProps(7)} />
-          <StyledTab label="PING-PONG" {...a11yProps(6)} />
+          <StyledTab label="TENIS" {...a11yProps(6)} />
+          <StyledTab label="PING-PONG" {...a11yProps(7)} />
+          <StyledTab label="TUG OF WAR" {...a11yProps(8)} />
         </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -131,6 +133,9 @@ const PanelTabsGames = () => {
       </TabPanel>
       <TabPanel value={value} index={7}>
         <GameRanking sport="pp" />
+      </TabPanel>
+      <TabPanel value={value} index={8}>
+        <TugOfWar />
       </TabPanel>
     </Box>
   );
