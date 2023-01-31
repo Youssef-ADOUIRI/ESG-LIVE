@@ -29,6 +29,9 @@ def global_rank(request):
 
 @api_view(['GET'])
 def collective_rank(request , sport ,sexe='m'):
+    sexe_abbr=''
+    if sexe=='f' : 
+        sexe_abbr='f'
     if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True).data:
         #select_related('teamId','matchId').
         matchteams_data = DetailsMatch.objects.values('teamId_id__nameTeam').filter(matchId_id__sport=sport).filter( matchId_id__sexe=sexe ).annotate(
@@ -42,8 +45,8 @@ def collective_rank(request , sport ,sexe='m'):
         matchteams_ser = TeamMatchSerializer(matchteams_data , many=True)
         return JsonResponse(matchteams_ser.data,safe=False)
             #'safe=False' for objects serialization
-    elif AthleticsMatchSerializer(AthleticsMatch.objects.filter(athleticsType=sport) , many=True).data:
-        matchteams_data = AthleticsParticipation.objects.values('idteam_id' , 'idteam_id__nameTeam','idteam_id__fullnameTeam', 'score').annotate(
+    elif AthleticsMatchSerializer(AthleticsMatch.objects.filter(athleticsType= sport + sexe_abbr) , many=True).data:
+        matchteams_data = AthleticsParticipation.objects.values('idteam_id' , 'idteam_id__nameTeam','idteam_id__fullnameTeam', 'score').filter(idathleticsMatch__athleticsType= sport + sexe_abbr).annotate(
             team_id = F('idteam_id'),
             team_name = F('idteam_id__nameTeam'),
             team_fullname = F('idteam_id__fullnameTeam'),

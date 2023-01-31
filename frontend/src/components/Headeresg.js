@@ -4,7 +4,7 @@ import "./Headeresg.css";
 
 function Headeresg() {
   return (
-    <div className="Headeresg__container">
+    <div className="Headeresg__container rounded-3" >
       <img
         src="/logo/Logo-ESG-Blanc.png"
         className="Headeresg__container__logoesg"

@@ -7,7 +7,9 @@ import PropTypes from "prop-types";
 import GlobalRanking from "./GlobalRanking";
 import { styled } from "@mui/material/styles";
 import GameRanking from "./games/GameRanking";
+import AthleticsGameRanking from "./games/AthleticsGameRanking";
 import "./PanelTabsGames.css";
+import SwimingGameRanking from "./games/SwimingGameRanking";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -57,6 +59,7 @@ const StyledTabs = styled((props) => (
     maxWidth: 40,
     width: "100%",
     backgroundColor: "#1B91BF",
+    borderRadius: 2,
   },
 });
 const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
@@ -99,6 +102,10 @@ const PanelTabsGames = () => {
           <StyledTab label="FOOTBALL" {...a11yProps(1)} />
           <StyledTab label="BASKETBALL" {...a11yProps(2)} />
           <StyledTab label="VOLLEYBALL" {...a11yProps(3)} />
+          <StyledTab label="SWIMING" {...a11yProps(4)} />
+          <StyledTab label="ATHLETICS" {...a11yProps(5)} />
+          <StyledTab label="TENIS" {...a11yProps(7)} />
+          <StyledTab label="PING-PONG" {...a11yProps(6)} />
         </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -112,6 +119,18 @@ const PanelTabsGames = () => {
       </TabPanel>
       <TabPanel value={value} index={3}>
         <GameRanking sport="vb" />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <SwimingGameRanking />
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        <AthleticsGameRanking />
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        <GameRanking sport="te" />
+      </TabPanel>
+      <TabPanel value={value} index={7}>
+        <GameRanking sport="pp" />
       </TabPanel>
     </Box>
   );
