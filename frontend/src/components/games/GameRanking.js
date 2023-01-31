@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   CircularProgress,
 } from "@mui/material";
+import "./GameRanking.css";
 
 const GameRanking = (prop) => {
   const [teams, setTeams] = useState([]);
@@ -81,12 +82,15 @@ const GameRanking = (prop) => {
             />
           </RadioGroup>
         </div>
-        <table class="table table-striped" style={{ width: "100%" }}>
+        <table
+          className="table table-hover GameRanking__table"
+          style={{ width: "100%" }}
+        >
           <thead>
             <tr>
               <th>Rank</th>
               <th>Name</th>
-              <th>Full Name</th>
+              <th className="d-none d-sm-table-cell">Full Name</th>
               <th>GS</th>
               <th>MP</th>
             </tr>
@@ -95,14 +99,18 @@ const GameRanking = (prop) => {
             {teams.map((team, i) => {
               return (
                 <tr>
-                  <td>{i + 1}</td>
-                  <td>{team.team_name.toUpperCase()}</td>
-                  <td>
+                  <td className="p-3">{i + 1}</td>
+                  <td className="p-3">{team.team_name.toUpperCase()}</td>
+                  <td className="p-3 d-none d-sm-table-cell">
                     {team.team_fullname.charAt(0).toUpperCase() +
                       team.team_fullname.slice(1)}
                   </td>
-                  <td>{team.total_goals ? team.total_goals : 0}</td>
-                  <td>{team.match_played ? team.match_played : 0}</td>
+                  <td className="p-3">
+                    {team.total_goals ? team.total_goals : 0}
+                  </td>
+                  <td className="p-3">
+                    {team.match_played ? team.match_played : 0}
+                  </td>
                 </tr>
               );
             })}
@@ -118,14 +126,14 @@ const GameRanking = (prop) => {
                 k++;
                 return (
                   <tr>
-                    <td>{teams.length + k}</td>
-                    <td>{team.nameTeam.toUpperCase()}</td>
-                    <td>
+                    <td className="p-3">{teams.length + k}</td>
+                    <td className="p-3">{team.nameTeam.toUpperCase()}</td>
+                    <td className="p-3 d-none d-sm-table-cell">
                       {team.fullnameTeam.charAt(0).toUpperCase() +
                         team.fullnameTeam.slice(1)}
                     </td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td className="p-3">0</td>
+                    <td className="p-3">0</td>
                   </tr>
                 );
               } else return <></>;

@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import GlobalRanking from "./GlobalRanking";
 import { styled } from "@mui/material/styles";
 import GameRanking from "./games/GameRanking";
+import "./PanelTabsGames.css";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -20,7 +21,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 , pt:1 }}>
+        <Box sx={{ p: 3, pt: 1 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -82,11 +83,16 @@ const PanelTabsGames = () => {
   };
 
   return (
-    <Box sx={{ width: "100%", m: "80px" }}>
+    <Box
+      className="PanelTabsGames__mui_Box"
+      sx={{ width: "100%", mx: "80px", my: "10px" }}
+    >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <StyledTabs
           value={value}
           onChange={handleChange}
+          variant="scrollable"
+          scrollButtons={false}
           aria-label="basic tabs example"
         >
           <StyledTab label="GLOBAL" {...a11yProps(0)} />

@@ -1,0 +1,20 @@
+.PanelTabsGames__mui_Box {
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+/*Media break at 1200px*/
+@media only screen and (max-width: 1200px) {
+    .PanelTabsGames__mui_Box {
+        margin-right: 20px !important;
+        margin-left: 20px !important;
+    }
+}
+
+/*Media break at 1000px*/
+@media only screen and (max-width: 1000px) {
+    .PanelTabsGames__mui_Box {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}

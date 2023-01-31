@@ -1,6 +1,7 @@
 .Headeresg__container {
     width: 370px;
     text-align: center;
+    min-height: calc(100vh - 200px);
     padding: 55px;
     transition: transform .4s ease;
     background-color: #1B91BF;
@@ -12,10 +13,29 @@
     width: 175px;
 }
 
-
 .Headeresg__container>h3 {
     font-family: 'New Athletic M54', sans-serif;
     font-size: 30px;
     font-weight: 200px;
     margin-top: 100px;
+}
+
+/*Media break at 1000px*/
+@media only screen and (max-width: 1000px) {
+    .Headeresg__container {
+        width: 100%;
+        min-height: auto;
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+
+    .Headeresg__container__logoesg {
+        width: 175px;
+        height: 101px;
+
+    }
+
+    .Headeresg__container>h3 {
+        margin-top: 10px;
+    }
 }

@@ -6,5 +6,19 @@
     width: 20px;
 }
 
+/*Media break at 1200px*/
+@media only screen and (max-width: 1200px) {
+    .App {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}
 
-/*Media break at 900px*/
+
+/*Media break at 1000px*/
+@media only screen and (max-width: 1000px) {
+    .App {
+        flex-direction: column !important;
+        margin: 0;
+    }
+}

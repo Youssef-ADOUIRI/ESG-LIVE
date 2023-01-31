@@ -20,7 +20,7 @@ const GlobalRanking = () => {
       });
     setLoading(false);
   }, []);
-  console.log(teams);
+
   if (!loading && teams.length > 0)
     return (
       <table class="table table-striped" style={{ width: "100%" }}>
