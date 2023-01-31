@@ -1,7 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Radio, RadioGroup, FormControlLabel } from "@mui/material";
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  CircularProgress,
+} from "@mui/material";
 
 const GameRanking = (prop) => {
   const [teams, setTeams] = useState([]);
@@ -130,7 +135,7 @@ const GameRanking = (prop) => {
       </div>
     );
   else {
-    return <div>Loading</div>;
+    return <CircularProgress />;
   }
 };
 

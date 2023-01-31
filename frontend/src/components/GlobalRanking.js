@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { CircularProgress } from "@mui/material";
 
 const GlobalRanking = () => {
   const url_globalRank = "http://127.0.0.1:8080/api/globalrank";
@@ -49,7 +50,7 @@ const GlobalRanking = () => {
       </table>
     );
   else {
-    return <div>Loading</div>;
+    return <CircularProgress sx={{ m: 9 }} />;
   }
 };
 
