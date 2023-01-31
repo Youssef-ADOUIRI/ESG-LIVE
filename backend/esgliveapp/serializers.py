@@ -67,15 +67,15 @@ class DetailsMatchSerializer(serializers.ModelSerializer):
                   'captainId')
 
 class TeamMatchSerializer(serializers.Serializer):
+    team_id = serializers.IntegerField()
     team_name  = serializers.CharField()
     team_fullname = serializers.CharField()
-    total_goals = serializers.IntegerField()
+    total_score = serializers.IntegerField()
     match_played = serializers.IntegerField()
 
-    class Meta:
-        model = Team
-        fields = ('id',
-                'nameTeam',
-                'fullnameTeam',
-                'total_goals',
-                'match_played')
+
+class AthleticsRankSerializer(serializers.Serializer):
+    team_id = serializers.IntegerField()
+    team_name  = serializers.CharField()
+    team_fullname = serializers.CharField()
+    total_score = serializers.IntegerField()

@@ -96,28 +96,30 @@ const GameRanking = (prop) => {
             </tr>
           </thead>
           <tbody>
-            {teams.map((team, i) => {
-              return (
-                <tr>
-                  <td className="p-3">{i + 1}</td>
-                  <td className="p-3">{team.team_name.toUpperCase()}</td>
-                  <td className="p-3 d-none d-sm-table-cell">
-                    {team.team_fullname.charAt(0).toUpperCase() +
-                      team.team_fullname.slice(1)}
-                  </td>
-                  <td className="p-3">
-                    {team.total_goals ? team.total_goals : 0}
-                  </td>
-                  <td className="p-3">
-                    {team.match_played ? team.match_played : 0}
-                  </td>
-                </tr>
-              );
-            })}
-            {allteams.map((team, i) => {
+            {teams.length > 0 &&
+              teams.map((team, i) => {
+                console.log(team);
+                return (
+                  <tr>
+                    <td className="p-3">{i + 1}</td>
+                    <td className="p-3">{team.team_name.toUpperCase()}</td>
+                    <td className="p-3 d-none d-sm-table-cell">
+                      {team.team_fullname.charAt(0).toUpperCase() +
+                        team.team_fullname.slice(1)}
+                    </td>
+                    <td className="p-3">
+                      {team.total_score ? team.total_score : 0}
+                    </td>
+                    <td className="p-3">
+                      {team.match_played ? team.match_played : 0}
+                    </td>
+                  </tr>
+                );
+              })}
+            {allteams.map((te, i) => {
               let exist = false;
               teams.map((t, ind) => {
-                if (t.team_name === team.nameTeam) {
+                if (t.team_name === te.nameTeam) {
                   exist = true;
                 }
                 return <></>;
@@ -127,10 +129,10 @@ const GameRanking = (prop) => {
                 return (
                   <tr>
                     <td className="p-3">{teams.length + k}</td>
-                    <td className="p-3">{team.nameTeam.toUpperCase()}</td>
+                    <td className="p-3">{te.nameTeam.toUpperCase()}</td>
                     <td className="p-3 d-none d-sm-table-cell">
-                      {team.fullnameTeam.charAt(0).toUpperCase() +
-                        team.fullnameTeam.slice(1)}
+                      {te.fullnameTeam.charAt(0).toUpperCase() +
+                        te.fullnameTeam.slice(1)}
                     </td>
                     <td className="p-3">0</td>
                     <td className="p-3">0</td>
