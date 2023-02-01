@@ -48,6 +48,7 @@ function a11yProps(index) {
 const StyledTabs = styled((props) => (
   <Tabs
     {...props}
+
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
 ))({
@@ -96,7 +97,8 @@ const PanelTabsGames = () => {
           value={value}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons={false}
+          scrollButtons
+          allowScrollButtonsMobile
           aria-label="basic tabs example"
         >
           <StyledTab label="GLOBAL" {...a11yProps(0)} />

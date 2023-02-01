@@ -13,7 +13,7 @@ const AthleticsGameRanking = () => {
   const [teams, setTeams] = useState([]);
   const [allteams, setAllTeams] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [gender, setGender] = useState("m");
+
   let k = 0;
   const [sport, setsport] = useState("crawl");
   const url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
@@ -28,7 +28,7 @@ const AthleticsGameRanking = () => {
       })
       .catch((e) => console.log(e));
     axios
-      .get(url_sportrank + "/" + gender)
+      .get(url_sportrank + sport)
       .then((res) => {
         const data_teams = res.data;
         setTeams(data_teams);
@@ -37,7 +37,7 @@ const AthleticsGameRanking = () => {
         console.log(e);
       });
     setLoading(false);
-  }, [gender, url_sportrank]);
+  }, []);
 
   const onChangeSport = (e) => {
     setsport(e.target.value);

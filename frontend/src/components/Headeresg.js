@@ -1,10 +1,9 @@
 import React from "react";
 import "./Headeresg.css";
 
-
 function Headeresg() {
   return (
-    <div className="Headeresg__container rounded-3" >
+    <div className="Headeresg__container">
       <img
         src="/logo/Logo-ESG-Blanc.png"
         className="Headeresg__container__logoesg"
