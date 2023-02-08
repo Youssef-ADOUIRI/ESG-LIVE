@@ -48,7 +48,6 @@ function a11yProps(index) {
 const StyledTabs = styled((props) => (
   <Tabs
     {...props}
-
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
 ))({
@@ -64,6 +63,7 @@ const StyledTabs = styled((props) => (
     borderRadius: 2,
   },
 });
+
 const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
   ({ theme }) => ({
     textTransform: "none",

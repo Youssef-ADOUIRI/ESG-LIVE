@@ -8,6 +8,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import "./GameRanking.css";
+import formControlSubTabs from "../formControlSubTabs"
 
 const GameRanking = (prop) => {
   const [teams, setTeams] = useState([]);
@@ -62,9 +63,11 @@ const GameRanking = (prop) => {
                     "&.Mui-checked": {
                       color: "#F27C38 ",
                     },
+                    display: "none",
                   }}
                 />
               }
+              sx={formControlSubTabs}
               label="Male"
             />
             <FormControlLabel
@@ -73,11 +76,13 @@ const GameRanking = (prop) => {
                 <Radio
                   sx={{
                     "&.Mui-checked": {
-                      color: "#F27C38 ",
+                      color: "#F27C38",
                     },
+                    display: "none",
                   }}
                 />
               }
+              sx={formControlSubTabs}
               label="Female"
             />
           </RadioGroup>
