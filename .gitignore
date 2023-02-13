@@ -1,11 +1,11 @@
 # venv #
-/backend/esgenv
+/backend/esgenv/
 # Django #
 *.log
 *.pot
 *.pyc
-/backend/esgliveapp/__pycache__
-/backend/backend/__pycache__
+backend/esgliveapp/__pycache__/
+backend/backend/__pycache__/
 
 # Backup files # 
 *.bak
@@ -17,4 +17,4 @@ env/
 venv/
 ENV/
 env.bak/ 
-venv.bak/ 
+venv.bak/
