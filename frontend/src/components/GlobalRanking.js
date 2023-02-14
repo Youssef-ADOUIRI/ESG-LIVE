@@ -4,7 +4,7 @@ import axios from "axios";
 import { CircularProgress } from "@mui/material";
 
 const GlobalRanking = () => {
-  const url_globalRank = "http://127.0.0.1:8080/api/globalrank";
+  const url_globalRank = "api/globalrank";
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 

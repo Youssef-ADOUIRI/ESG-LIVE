@@ -12,8 +12,8 @@ const GameRanking = (prop) => {
   const [gender, setGender] = useState("m");
   let k = 0;
   const sport = prop.sport;
-  let url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
-  const url_allTeams = "http://127.0.0.1:8080/api/teams";
+  let url_sportrank = "api/rank/" + sport;
+  const url_allTeams = "api/teams";
 
   useEffect(() => {
     setLoading(true);

@@ -15,8 +15,8 @@ const SwimingGameRanking = () => {
   const [loading, setLoading] = useState(false);
   let k = 0;
   const [sport, setsport] = useState("crawl");
-  let url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
-  const url_allTeams = "http://127.0.0.1:8080/api/teams";
+  let url_sportrank = "api/rank/" + sport;
+  const url_allTeams = "api/teams";
 
   useEffect(() => {
     setLoading(true);

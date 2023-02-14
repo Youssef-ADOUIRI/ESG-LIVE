@@ -9,8 +9,8 @@ const TugOfWar = () => {
   const [allteams, setAllTeams] = useState([]);
   const [loading, setLoading] = useState(false);
   let k = 0;
-  const url_sportrank = "http://127.0.0.1:8080/api/rank/tg";
-  const url_allTeams = "http://127.0.0.1:8080/api/teams";
+  const url_sportrank = "api/rank/tg";
+  const url_allTeams = "api/teams";
 
   useEffect(() => {
     setLoading(true);
