@@ -15,8 +15,8 @@ const AthleticsGameRanking = () => {
   const [loading, setLoading] = useState(false);
 
   let k = 0;
-  const [sport, setsport] = useState("crawl");
-  const url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
+  const [sport, setsport] = useState("race1");
+  let url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
   const url_allTeams = "http://127.0.0.1:8080/api/teams";
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const AthleticsGameRanking = () => {
         console.log(e);
       });
     setLoading(false);
-  }, []);
+  }, [url_sportrank, sport, allteams]);
 
   const onChangeSport = (e) => {
     setsport(e.target.value);

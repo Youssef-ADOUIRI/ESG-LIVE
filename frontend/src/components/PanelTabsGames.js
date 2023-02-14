@@ -21,6 +21,7 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
+      className="PanelTabsGames__mui_tabpanel"
       {...other}
     >
       {value === index && (
@@ -69,7 +70,7 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     textTransform: "none",
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.pxToRem(15),
-    marginRight: theme.spacing(1),
+    /*marginRight: theme.spacing(1),*/
     color: "rgba(0, 0, 0, 0.7)",
     "&.Mui-selected": {
       color: "#1B91BF",
@@ -90,7 +91,7 @@ const PanelTabsGames = () => {
   return (
     <Box
       className="PanelTabsGames__mui_Box"
-      sx={{ width: "100%", mx: "80px", my: "10px" }}
+      sx={{ width: "auto", mx: "80px", my: "10px" }}
     >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <StyledTabs
@@ -98,7 +99,6 @@ const PanelTabsGames = () => {
           onChange={handleChange}
           variant="scrollable"
           scrollButtons
-          allowScrollButtonsMobile
           aria-label="basic tabs example"
         >
           <StyledTab label="GLOBAL" {...a11yProps(0)} />

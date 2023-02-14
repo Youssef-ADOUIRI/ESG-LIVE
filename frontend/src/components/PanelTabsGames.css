@@ -3,11 +3,18 @@
     margin-left: 80px;
 }
 
+.PanelTabsGames__mui_tabpanel {
+    padding: 20px;
+}
+
 /*Media break at 1200px*/
 @media only screen and (max-width: 1200px) {
     .PanelTabsGames__mui_Box {
         margin-right: 20px !important;
         margin-left: 20px !important;
+    }
+    .PanelTabsGames__mui_tabpanel {
+        padding: 10px;
     }
 }
 
@@ -16,5 +23,10 @@
     .PanelTabsGames__mui_Box {
         margin-right: 0 !important;
         margin-left: 0 !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    .PanelTabsGames__mui_tabpanel {
+        padding: 5px;
     }
 }

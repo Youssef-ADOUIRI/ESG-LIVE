@@ -23,7 +23,7 @@ const GlobalRanking = () => {
 
   if (!loading && teams.length > 0)
     return (
-      <table class="table table-striped" style={{ width: "100%" }}>
+      <table className="table table-striped" style={{ width: "100%"}}>
         <thead>
           <tr>
             <th>Rank</th>

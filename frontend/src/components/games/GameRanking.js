@@ -1,14 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  CircularProgress,
-} from "@mui/material";
+import { Radio, RadioGroup, CircularProgress } from "@mui/material";
 import "./GameRanking.css";
-import formControlSubTabs from "../formControlSubTabs"
+import { StyledFormControlLabel } from "../formControlSubTabs";
 
 const GameRanking = (prop) => {
   const [teams, setTeams] = useState([]);
@@ -17,7 +12,7 @@ const GameRanking = (prop) => {
   const [gender, setGender] = useState("m");
   let k = 0;
   const sport = prop.sport;
-  const url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
+  let url_sportrank = "http://127.0.0.1:8080/api/rank/" + sport;
   const url_allTeams = "http://127.0.0.1:8080/api/teams";
 
   useEffect(() => {
@@ -38,7 +33,7 @@ const GameRanking = (prop) => {
         console.log(e);
       });
     setLoading(false);
-  }, [gender, url_sportrank]);
+  }, [gender, url_sportrank, sport]);
 
   const onChangeGender = (e) => {
     setGender(e.target.value);
@@ -55,34 +50,26 @@ const GameRanking = (prop) => {
             onChange={onChangeGender}
             sx={{ margin: "10px" }}
           >
-            <FormControlLabel
+            <StyledFormControlLabel
               value="m"
               control={
                 <Radio
                   sx={{
-                    "&.Mui-checked": {
-                      color: "#F27C38 ",
-                    },
                     display: "none",
                   }}
                 />
               }
-              sx={formControlSubTabs}
               label="Male"
             />
-            <FormControlLabel
+            <StyledFormControlLabel
               value="f"
               control={
                 <Radio
                   sx={{
-                    "&.Mui-checked": {
-                      color: "#F27C38",
-                    },
                     display: "none",
                   }}
                 />
               }
-              sx={formControlSubTabs}
               label="Female"
             />
           </RadioGroup>
