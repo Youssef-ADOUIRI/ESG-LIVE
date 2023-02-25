@@ -6,8 +6,8 @@ from django.http.response import JsonResponse , HttpResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from esgliveapp.models import Team , DetailsMatch ,CollectiveMatch , AthleticsMatch , AthleticsParticipation
-from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer,CollectiveMatchSerializer , AthleticsMatchSerializer ,AthleticsRankSerializer 
+from esgliveapp.models import Team , DetailsMatch , CollectiveMatch , AthleticsMatch , AthleticsParticipation 
+from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer,CollectiveMatchSerializer , AthleticsMatchSerializer ,AthleticsRankSerializer ,DetailsMatchSerializer ,MatchePlayedSerializer
 from rest_framework.decorators import api_view
 from django.db.models import Count , Sum , F , FilteredRelation , Q
 
@@ -56,6 +56,34 @@ def collective_rank(request , sport ,sexe='m'):
         return JsonResponse(matchteams_ser.data,safe=False)
     else:
         return JsonResponse([] , safe=False)
+
+@api_view(['GET'])
+def get_matches(request):
+    if  DetailsMatchSerializer(DetailsMatch.objects.all() , many=True).data:
+        matches_data = DetailsMatch.objects.select_related('teamId' ,'matchId').values('teamId' , 'teamId__nameTeam' ,'teamId__fullnameTeam' ,'score', 'win_lose', 'matchId__sexe' , 'matchId' ,'matchId__collectivePhase' , 'matchId__sport').annotate(
+            team_id = F('teamId'),
+            team_name = F('teamId__nameTeam'),
+            team_fullname = F('teamId__fullnameTeam'),
+            team_score = F('score'),
+            team_result = F('win_lose'),
+            match_sexe = F('matchId__sexe'),
+            match_id = F('matchId'),
+            match_collectivePhase = F('matchId__collectivePhase'),
+            match_sport = F('matchId__sport')
+        ).order_by('-matchId_id').order_by('-matchId__collectiveMatchDate').order_by('-matchId__collectiveMatchTime')
+        serializedData = MatchePlayedSerializer(matches_data , many=True)
+        return JsonResponse(serializedData.data, safe=False)
+    else:
+        return JsonResponse([] , safe=False)
+
+
+@api_view(['GET'])
+def get_matches_by(request, sport , sexe):
+    if CollectiveMatchSerializer(CollectiveMatch.objects.filter(sport=sport , sexe=sexe) , many=True).data:
+     return JsonResponse([] , safe=False)
+    else:
+        return JsonResponse([] , safe=False)
+
 
 #NAME
 @api_view(['GET'])

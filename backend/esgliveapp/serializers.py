@@ -73,6 +73,17 @@ class TeamMatchSerializer(serializers.Serializer):
     total_score = serializers.IntegerField()
     match_played = serializers.IntegerField()
 
+class MatchePlayedSerializer(serializers.Serializer):
+    team_id = serializers.IntegerField()
+    team_name = serializers.CharField()
+    team_fullname = serializers.CharField()
+    team_score = serializers.IntegerField()
+    team_result = serializers.CharField()
+    match_sexe = serializers.CharField()
+    match_id = serializers.IntegerField()
+    match_collectivePhase = serializers.IntegerField()
+    match_sport = serializers.CharField()
+
 
 class AthleticsRankSerializer(serializers.Serializer):
     team_id = serializers.IntegerField()
