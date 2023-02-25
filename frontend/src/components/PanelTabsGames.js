@@ -102,9 +102,9 @@ const PanelTabsGames = () => {
           <StyledTab label="FOOTBALL" {...a11yProps(1)} />
           <StyledTab label="BASKETBALL" {...a11yProps(2)} />
           <StyledTab label="VOLLEYBALL" {...a11yProps(3)} />
-          <StyledTab label="SWIMING" {...a11yProps(4)} />
+          <StyledTab label="SWIMMING" {...a11yProps(4)} />
           <StyledTab label="ATHLETICS" {...a11yProps(5)} />
-          <StyledTab label="TENIS" {...a11yProps(6)} />
+          <StyledTab label="TENNIS" {...a11yProps(6)} />
           <StyledTab label="PING-PONG" {...a11yProps(7)} />
           <StyledTab label="TUG OF WAR" {...a11yProps(8)} />
         </StyledTabs>

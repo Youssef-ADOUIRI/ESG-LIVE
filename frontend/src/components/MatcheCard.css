@@ -1,12 +1,55 @@
-.MatcheCard__team {
-    width: 500px;
-    margin: 20px;
+.MatcheCard__match {
+    width: 100%;
+
+    margin: auto;
+    margin-top: 10px;
     text-align: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 1rem;
+    padding: 15px;
+    background-color: #204473;
+    color: white;
 }
+
+
+.MatcheCard__match_time {
+    font-size: small;
+    font-weight: 200;
+    text-align: center;
+    margin: auto;
+}
+
+.MatcheCard__score {
+    color: white;
+    border-radius: 15px;
+    font-size: larger;
+    background-color: #F2522E;
+
+}
+
+.MatcheCard__team_name {
+    width: 90px;
+    font-size: larger;
+}
+
 
 .MatcheCard__team_score {
     font-size: large;
+    width: 50px;
+}
+
+
+
+/*Media break at 1000px*/
+@media only screen and (max-width: 1000px) {
+    .MatcheCard__match {
+        width: 100%;
+    }
+    .MatcheCard__score {
+        font-size: large;
+    }
+    
+    .MatcheCard__team_name {
+        width: 90px;
+        font-size: large;
+    }
 }

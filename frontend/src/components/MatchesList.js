@@ -21,12 +21,13 @@ const MatchesList = () => {
 
   if (!loading && listMatches.length % 2 === 0 && listMatches.length > 1)
     return (
-      <div>
+      <div className="d-flex flex-wrap">
         {listMatches.length % 2 === 0 &&
           listMatches.map((match, i) => {
             if (i % 2 === 0)
               return (
                 <MatcheCard
+                  time={match.match_time}
                   team1_name={match.team_name}
                   team1_score={match.team_score.toString()}
                   team2_name={listMatches[i + 1].team_name}

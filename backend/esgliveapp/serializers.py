@@ -83,6 +83,7 @@ class MatchePlayedSerializer(serializers.Serializer):
     match_id = serializers.IntegerField()
     match_collectivePhase = serializers.IntegerField()
     match_sport = serializers.CharField()
+    match_time = serializers.TimeField()
 
 
 class AthleticsRankSerializer(serializers.Serializer):

@@ -60,7 +60,7 @@ def collective_rank(request , sport ,sexe='m'):
 @api_view(['GET'])
 def get_matches(request):
     if  DetailsMatchSerializer(DetailsMatch.objects.all() , many=True).data:
-        matches_data = DetailsMatch.objects.select_related('teamId' ,'matchId').values('teamId' , 'teamId__nameTeam' ,'teamId__fullnameTeam' ,'score', 'win_lose', 'matchId__sexe' , 'matchId' ,'matchId__collectivePhase' , 'matchId__sport').annotate(
+        matches_data = DetailsMatch.objects.select_related('teamId' ,'matchId').values('teamId' , 'teamId__nameTeam' ,'teamId__fullnameTeam' ,'score', 'win_lose', 'matchId__sexe' , 'matchId' ,'matchId__collectivePhase' , 'matchId__sport' , 'matchId__collectiveMatchTime').annotate(
             team_id = F('teamId'),
             team_name = F('teamId__nameTeam'),
             team_fullname = F('teamId__fullnameTeam'),
@@ -69,7 +69,8 @@ def get_matches(request):
             match_sexe = F('matchId__sexe'),
             match_id = F('matchId'),
             match_collectivePhase = F('matchId__collectivePhase'),
-            match_sport = F('matchId__sport')
+            match_sport = F('matchId__sport'),
+            match_time = F('matchId__collectiveMatchTime')
         ).order_by('-matchId_id').order_by('-matchId__collectiveMatchDate').order_by('-matchId__collectiveMatchTime')
         serializedData = MatchePlayedSerializer(matches_data , many=True)
         return JsonResponse(serializedData.data, safe=False)
