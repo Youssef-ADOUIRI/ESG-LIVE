@@ -36,7 +36,7 @@ const SwimingGameRanking = () => {
         console.log(e);
       });
     setLoading(false);
-  }, []);
+  }, [sport]);
 
   const onChangeSport = (e) => {
     setsport(e.target.value);

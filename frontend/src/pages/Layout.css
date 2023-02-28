@@ -1,16 +1,27 @@
 .App {
     margin: 76px;
-    
 }
 
+.layout__nav {
+    margin: 10px 76px;
 
-.nav__esglogo {
-    width: 20px;
+}
+
+.layout__nav__logoesg {
+    display: block;
+    max-height: 40px;
+    height: auto;
+    width: auto;
 }
 
 /*Media break at 1200px*/
 @media only screen and (max-width: 1200px) {
     .App {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .layout__nav {
         margin-right: 40px;
         margin-left: 40px;
     }
@@ -22,5 +33,15 @@
     .App {
         flex-direction: column !important;
         margin: 0;
+    }
+
+    .layout__nav {
+        right: 10px;
+        left: 10px;
+        position: absolute;
+    }
+
+    .layout__nav__logoesg {
+        display: none;
     }
 }
