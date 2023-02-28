@@ -15,7 +15,7 @@ const SwimingGameRanking = () => {
   const [loading, setLoading] = useState(false);
   let k = 0;
   const [sport, setsport] = useState("crawl");
-  let url_sportrank = "api/rank/" + sport;
+  let url_sportrank = "api/rank_athletic/";
   const url_allTeams = "api/teams";
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const SwimingGameRanking = () => {
         console.log(e);
       });
     setLoading(false);
-  }, [sport, url_sportrank, allteams]);
+  }, []);
 
   const onChangeSport = (e) => {
     setsport(e.target.value);
@@ -130,8 +130,7 @@ const SwimingGameRanking = () => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
-              <th>S</th>
-              <th>Pts</th>
+              <th>Score</th>
             </tr>
           </thead>
           <tbody>
@@ -147,9 +146,6 @@ const SwimingGameRanking = () => {
                     </td>
                     <td className="p-3">
                       {team.total_score ? team.total_score : 0}
-                    </td>
-                    <td className="p-3">
-                      {team.total_pts ? team.total_pts : 0}
                     </td>
                   </tr>
                 );
@@ -172,7 +168,6 @@ const SwimingGameRanking = () => {
                       {te.fullnameTeam.charAt(0).toUpperCase() +
                         te.fullnameTeam.slice(1)}
                     </td>
-                    <td className="p-3">0</td>
                     <td className="p-3">0</td>
                   </tr>
                 );

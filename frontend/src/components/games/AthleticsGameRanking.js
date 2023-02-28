@@ -16,7 +16,7 @@ const AthleticsGameRanking = () => {
 
   let k = 0;
   const [sport, setsport] = useState("race1");
-  let url_sportrank = "api/rank/" + sport;
+  let url_sportrank = "api/rank_athletic/" + sport;
   const url_allTeams = "api/teams";
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const AthleticsGameRanking = () => {
         console.log(e);
       });
     setLoading(false);
-  }, [url_sportrank, sport, allteams]);
+  }, []);
 
   const onChangeSport = (e) => {
     setsport(e.target.value);
@@ -184,8 +184,7 @@ const AthleticsGameRanking = () => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
-              <th>S</th>
-              <th>Pts</th>
+              <th>Score</th>
             </tr>
           </thead>
           <tbody>
@@ -201,9 +200,6 @@ const AthleticsGameRanking = () => {
                     </td>
                     <td className="p-3">
                       {team.total_score ? team.total_score : 0}
-                    </td>
-                    <td className="p-3">
-                      {team.total_pts ? team.total_pts : 0}
                     </td>
                   </tr>
                 );
@@ -226,7 +222,6 @@ const AthleticsGameRanking = () => {
                       {te.fullnameTeam.charAt(0).toUpperCase() +
                         te.fullnameTeam.slice(1)}
                     </td>
-                    <td className="p-3">0</td>
                     <td className="p-3">0</td>
                   </tr>
                 );

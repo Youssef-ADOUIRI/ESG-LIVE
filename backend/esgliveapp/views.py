@@ -73,6 +73,26 @@ def collective_rank(request , sport ,sexe='m'):
     except TeamRanking.DoesNotExist:
         return JsonResponse({'message': 'The teams do not exist'}, status=status.HTTP_404_NOT_FOUND)
 
+@api_view(['GET'])
+def athletic_rank(request , sport ,sexe='m'):
+    sexe_abbr=''
+    if sexe=='f' : 
+        sexe_abbr='f'
+    try:
+        if AthleticsMatchSerializer(AthleticsMatch.objects.filter(athleticsType = sport + sexe_abbr) , many=True).data:
+            matchteams_data = AthleticsParticipation.objects.values('idteam_id' , 'idteam_id__nameTeam','idteam_id__fullnameTeam', 'score').filter(idathleticsMatch__athleticsType= sport + sexe_abbr).annotate(
+            team_id = F('idteam_id'),
+            team_name = F('idteam_id__nameTeam'),
+            team_fullname = F('idteam_id__fullnameTeam'),
+            total_score = F('score')
+            ).order_by('team_name').order_by('-total_score')
+            matchteams_ser = AthleticsRankSerializer(matchteams_data , many=True)
+            return JsonResponse(matchteams_ser.data,safe=False)
+        else:
+            return JsonResponse([] , safe=False)
+    except TeamRanking.DoesNotExist:
+        return JsonResponse({'message': 'The teams do not exist'}, status=status.HTTP_404_NOT_FOUND)
+
 
 @api_view(['GET'])
 def get_matches(request):
