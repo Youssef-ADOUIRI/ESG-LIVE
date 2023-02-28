@@ -12,6 +12,8 @@ from rest_framework.decorators import api_view
 from django.db.models import Count , Sum , F , FilteredRelation , Q
 
 # Create your views here.
+def error_404(request, exception):
+    return render(request, 'pages/404.html')
 
 @api_view(['GET'])
 def team_list(request):
