@@ -104,7 +104,7 @@ const PanelTabsGamesMatches = () => {
         </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <MatchesList />
+        <MatchesList sport="" />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <MatchesList sport="fb" />
