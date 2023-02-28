@@ -4,7 +4,6 @@
 
 .layout__nav {
     margin: 10px 76px;
-
 }
 
 .layout__nav__logoesg {
@@ -36,9 +35,14 @@
     }
 
     .layout__nav {
-        right: 10px;
-        left: 10px;
+        right: 0.1rem;
+        top: 0.1rem;
+        margin: 0;
         position: absolute;
+    }
+
+    .layout__nav__button {
+        color: white;
     }
 
     .layout__nav__logoesg {

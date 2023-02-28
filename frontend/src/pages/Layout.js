@@ -24,7 +24,9 @@ const Layout = () => {
       <List>
         <ListItem key={"Home"} disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Home"} />
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <ListItemText primary={"Home"} />
+            </Link>
           </ListItemButton>
         </ListItem>
       </List>
@@ -32,8 +34,8 @@ const Layout = () => {
       <List>
         <ListItem key={"Matches"} disablePadding>
           <ListItemButton>
-            <Link to={"/matches"}>
-            <ListItemText primary={"Matches"} />
+            <Link to={"/matches"} style={{ textDecoration: "none" }}>
+              <ListItemText primary={"Matches"} />
             </Link>
           </ListItemButton>
         </ListItem>
@@ -63,7 +65,7 @@ const Layout = () => {
         <div />
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(true)}>
-            <MenuRoundedIcon />
+            <MenuRoundedIcon className="layout__nav__button" />
           </Button>
           <Drawer open={state} onClose={toggleDrawer(false)}>
             {list()}
