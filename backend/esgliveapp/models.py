@@ -57,3 +57,12 @@ class DetailsMatch(models.Model):
     captainId = models.ForeignKey(Player ,on_delete=models.SET_NULL , null=True)
     def __str__(self):
         return "%s [%s]" % (self.teamId , self.matchId)
+
+class TeamRanking(models.Model):
+    teamId = models.ForeignKey(Team , on_delete=models.CASCADE)
+    sport = models.CharField(max_length=40 , blank=False)
+    sexe =  models.CharField(max_length=2 , blank=False)
+    rank = models.IntegerField(blank=True, null=True)
+    matchPlayed = models.IntegerField(blank=True, null=True)
+    def __str__(self):
+        return "%s %s%s [%s]" % (self.teamId ,self.sport , self.sexe, self.rank)

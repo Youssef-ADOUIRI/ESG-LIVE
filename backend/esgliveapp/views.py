@@ -6,8 +6,8 @@ from django.http.response import JsonResponse , HttpResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from esgliveapp.models import Team , DetailsMatch , CollectiveMatch , AthleticsMatch , AthleticsParticipation 
-from esgliveapp.serializers import TeamSerializer ,  TeamMatchSerializer,CollectiveMatchSerializer , AthleticsMatchSerializer ,AthleticsRankSerializer ,DetailsMatchSerializer ,MatchePlayedSerializer
+from esgliveapp.models import *
+from esgliveapp.serializers import *
 from rest_framework.decorators import api_view
 from django.db.models import Count , Sum , F , FilteredRelation , Q
 
@@ -27,6 +27,7 @@ def global_rank(request):
     teams_serializer = TeamSerializer(teams, many=True)
     return JsonResponse(teams_serializer.data , safe=False)
 
+'''
 @api_view(['GET'])
 def collective_rank(request , sport ,sexe='m'):
     sexe_abbr=''
@@ -56,6 +57,22 @@ def collective_rank(request , sport ,sexe='m'):
         return JsonResponse(matchteams_ser.data,safe=False)
     else:
         return JsonResponse([] , safe=False)
+'''
+@api_view(['GET'])
+def collective_rank(request , sport ,sexe='m'):
+    try:
+        teamsRanking = TeamRanking.objects.filter(sport=sport , sexe=sexe).select_related('teamId').annotate(
+            team_name = F('teamId__nameTeam'),
+            team_fullname = F('teamId__fullnameTeam'),
+            ).order_by('teamId__nameTeam').order_by('rank')
+        teamsRanking_serialized = TeamRankingSerializer(teamsRanking , many=True)
+        if teamsRanking_serialized.data:
+            return JsonResponse(teamsRanking_serialized.data, safe=False)
+        else:
+            return JsonResponse([], safe=False)
+    except TeamRanking.DoesNotExist:
+        return JsonResponse({'message': 'The teams do not exist'}, status=status.HTTP_404_NOT_FOUND)
+
 
 @api_view(['GET'])
 def get_matches(request):

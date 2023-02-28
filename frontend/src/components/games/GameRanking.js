@@ -83,7 +83,6 @@ const GameRanking = (prop) => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
-              <th>GS</th>
               <th>MP</th>
             </tr>
           </thead>
@@ -99,10 +98,7 @@ const GameRanking = (prop) => {
                         team.team_fullname.slice(1)}
                     </td>
                     <td className="p-3">
-                      {team.total_score ? team.total_score : 0}
-                    </td>
-                    <td className="p-3">
-                      {team.match_played ? team.match_played : 0}
+                      {team.matchPlayed ? team.matchPlayed : 0}
                     </td>
                   </tr>
                 );
@@ -125,7 +121,6 @@ const GameRanking = (prop) => {
                       {te.fullnameTeam.charAt(0).toUpperCase() +
                         te.fullnameTeam.slice(1)}
                     </td>
-                    <td className="p-3">0</td>
                     <td className="p-3">0</td>
                   </tr>
                 );

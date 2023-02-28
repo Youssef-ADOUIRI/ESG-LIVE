@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from esgliveapp.models import Team,Player , AthleticsParticipation , AthleticsMatch , CollectiveMatch , DetailsMatch
+from esgliveapp.models import Team,Player , AthleticsParticipation , AthleticsMatch , CollectiveMatch , DetailsMatch , TeamRanking
  
  
 class TeamSerializer(serializers.ModelSerializer):
@@ -91,3 +91,16 @@ class AthleticsRankSerializer(serializers.Serializer):
     team_name  = serializers.CharField()
     team_fullname = serializers.CharField()
     total_score = serializers.IntegerField()
+
+class TeamRankingSerializer(serializers.ModelSerializer):
+    team_name  = serializers.CharField()
+    team_fullname = serializers.CharField()
+    class Meta:
+        model = TeamRanking
+        fields = ('id',
+                  'team_name',
+                  'team_fullname',
+                  'sport',
+                  'sexe',
+                  'rank',
+                  'matchPlayed')
