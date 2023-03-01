@@ -12,7 +12,10 @@
     .PanelTabsGames__mui_Box {
         margin-right: 20px !important;
         margin-left: 20px !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
     }
+
     .PanelTabsGames__mui_tabpanel {
         padding: 10px;
     }
@@ -26,6 +29,7 @@
         padding-right: 0 !important;
         padding-left: 0 !important;
     }
+
     .PanelTabsGames__mui_tabpanel {
         padding: 5px;
     }

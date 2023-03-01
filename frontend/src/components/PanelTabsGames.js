@@ -89,14 +89,13 @@ const PanelTabsGames = () => {
   };
 
   return (
-    <Box className="PanelTabsGames__mui_Box" sx={{ width: "auto" }}>
+    <Box className="PanelTabsGames__mui_Box" sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <StyledTabs
           value={value}
           onChange={handleChange}
           variant="scrollable"
           scrollButtons="auto"
-          aria-label="basic tabs example"
         >
           <StyledTab label="GLOBAL" {...a11yProps(0)} />
           <StyledTab label="FOOTBALL" {...a11yProps(1)} />
