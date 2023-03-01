@@ -1,16 +1,26 @@
 .App {
-    margin: 76px;
+    margin: 15px 76px;
 }
 
 .layout__nav {
     margin: 10px 76px;
 }
 
-.layout__nav__logoesg {
+.layout__nav__logoesg,
+.layout__nav__logoesg__centered {
     display: block;
-    max-height: 40px;
+    max-height: 45px;
     height: auto;
     width: auto;
+}
+
+.layout__nav__logoesg__centered {
+    margin: 10px auto;
+    max-height: 40px;
+}
+
+.layout__list_item {
+    color: #1B91BF;
 }
 
 /*Media break at 1200px*/

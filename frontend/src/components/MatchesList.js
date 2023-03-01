@@ -30,38 +30,40 @@ const MatchesList = ({ sport }) => {
   if (!loading)
     return (
       <div>
-        <div>
-          <RadioGroup
-            row
-            name="row-controlled-radio-buttons-group"
-            value={gender}
-            onChange={onChangeGender}
-            sx={{ margin: "10px" }}
-          >
-            <StyledFormControlLabel
-              value="m"
-              control={
-                <Radio
-                  sx={{
-                    display: "none",
-                  }}
-                />
-              }
-              label="Male"
-            />
-            <StyledFormControlLabel
-              value="f"
-              control={
-                <Radio
-                  sx={{
-                    display: "none",
-                  }}
-                />
-              }
-              label="Female"
-            />
-          </RadioGroup>
-        </div>
+        {sport != "" && (
+          <div>
+            <RadioGroup
+              row
+              name="row-controlled-radio-buttons-group"
+              value={gender}
+              onChange={onChangeGender}
+              sx={{ margin: "10px" }}
+            >
+              <StyledFormControlLabel
+                value="m"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label="Male"
+              />
+              <StyledFormControlLabel
+                value="f"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label="Female"
+              />
+            </RadioGroup>
+          </div>
+        )}
         {listMatches.length % 2 === 0 && listMatches.length > 1 && (
           <div className="d-flex flex-wrap">
             {listMatches.length % 2 === 0 &&

@@ -21,11 +21,16 @@ const Layout = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
+      <img
+          src="/logo/Logo-ESG.png"
+          className="layout__nav__logoesg__centered"
+          alt="logo"
+        ></img>
       <List>
         <ListItem key={"Home"} disablePadding>
           <ListItemButton>
             <Link to={"/"} style={{ textDecoration: "none" }}>
-              <ListItemText primary={"Home"} />
+              <ListItemText primary={"Home"} className="layout__list_item" />
             </Link>
           </ListItemButton>
         </ListItem>
@@ -35,7 +40,7 @@ const Layout = () => {
         <ListItem key={"Matches"} disablePadding>
           <ListItemButton>
             <Link to={"/matches"} style={{ textDecoration: "none" }}>
-              <ListItemText primary={"Matches"} />
+              <ListItemText primary={"Matches"} className="layout__list_item" />
             </Link>
           </ListItemButton>
         </ListItem>

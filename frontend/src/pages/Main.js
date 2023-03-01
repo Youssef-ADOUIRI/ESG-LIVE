@@ -2,11 +2,7 @@ import React from "react";
 import PanelTabsGames from "../components/PanelTabsGames";
 
 const Main = () => {
-  return (
-    <div>
-      <PanelTabsGames />
-    </div>
-  );
+  return <PanelTabsGames />;
 };
 
 export default Main;
