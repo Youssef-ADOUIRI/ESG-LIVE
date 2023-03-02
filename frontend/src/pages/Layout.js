@@ -22,10 +22,10 @@ const Layout = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <img
-          src="/logo/Logo-ESG.png"
-          className="layout__nav__logoesg__centered"
-          alt="logo"
-        ></img>
+        src="/logo/Logo-ESG.png"
+        className="layout__nav__logoesg__centered"
+        alt="logo"
+      ></img>
       <List>
         <ListItem key={"Home"} disablePadding>
           <ListItemButton>
@@ -79,7 +79,7 @@ const Layout = () => {
       </nav>
       <div className="App d-flex">
         <Headeresg />
-        <Outlet />
+        {/* <Outlet /> */}
       </div>
     </div>
   );
