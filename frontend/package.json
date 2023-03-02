@@ -29,6 +29,7 @@
     ]
   },
   "proxy": "https://esg-live.vercel.app",
+  
   "browserslist": {
     "production": [
       ">0.2%",
