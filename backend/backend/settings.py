@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a-oq$pol&v7%@f&u8$#7@!^%88fk9_&#6cw$nw^mjs6w5&%d8n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*','.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -55,10 +55,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'https://esg-olive.vercel.app',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     'https://esg-olive.vercel.app',
+# )
 
 ROOT_URLCONF = 'backend.urls'
 
