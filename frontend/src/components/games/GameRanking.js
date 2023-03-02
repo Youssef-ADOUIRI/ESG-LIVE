@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Radio, RadioGroup, CircularProgress } from "@mui/material";
 import "./GameRanking.css";
 import { StyledFormControlLabel } from "../formControlSubTabs";
+import { MyApiClient } from "../../axios_api";
 
 const GameRanking = (prop) => {
   const [teams, setTeams] = useState([]);
@@ -17,14 +17,12 @@ const GameRanking = (prop) => {
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get(url_allTeams)
+    MyApiClient.get(url_allTeams)
       .then((res) => {
         setAllTeams(res.data);
       })
       .catch((e) => console.log(e));
-    axios
-      .get(url_sportrank + "/" + gender)
+    MyApiClient.get(url_sportrank + "/" + gender)
       .then((res) => {
         const data_teams = res.data;
         setTeams(data_teams);

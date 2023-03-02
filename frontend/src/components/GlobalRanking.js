@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { MyApiClient } from "../axios_api";
 import { CircularProgress } from "@mui/material";
 
 const GlobalRanking = () => {
@@ -10,7 +10,7 @@ const GlobalRanking = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
+    MyApiClient
       .get(url_globalRank)
       .then((res) => {
         setTeams(res.data);

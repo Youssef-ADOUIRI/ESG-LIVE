@@ -28,7 +28,6 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://esg-live.vercel.app",
   
   "browserslist": {
     "production": [
