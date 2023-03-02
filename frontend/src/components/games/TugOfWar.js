@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { CircularProgress } from "@mui/material";
 import "./GameRanking.css";
+import { MyApiClient } from "../../axios_api";
 
 const TugOfWar = () => {
   const [teams, setTeams] = useState([]);
@@ -14,14 +14,12 @@ const TugOfWar = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get(url_allTeams)
+    MyApiClient.get(url_allTeams)
       .then((res) => {
         setAllTeams(res.data);
       })
       .catch((e) => console.log(e));
-    axios
-      .get(url_sportrank)
+    MyApiClient.get(url_sportrank)
       .then((res) => {
         const data_teams = res.data;
         setTeams(data_teams);

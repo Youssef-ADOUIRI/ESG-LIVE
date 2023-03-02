@@ -1,8 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MatcheCard from "./MatcheCard";
 import { Radio, RadioGroup, CircularProgress } from "@mui/material";
 import { StyledFormControlLabel } from "./formControlSubTabs";
+import { MyApiClient } from "../axios_api";
+
 
 const MatchesList = ({ sport }) => {
   const [listMatches, setListMatches] = useState([]);
@@ -12,7 +13,7 @@ const MatchesList = ({ sport }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios
+    MyApiClient
       .get(api_endpoint + (sport ? "/" + sport + "/" + gender : ""))
       .then((res) => {
         setListMatches(res.data);
