@@ -79,7 +79,7 @@ const Layout = () => {
       </nav>
       <div className="App d-flex">
         <Headeresg />
-        {/* <Outlet /> */}
+        <Outlet />
       </div>
     </div>
   );
