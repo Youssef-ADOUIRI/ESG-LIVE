@@ -1,6 +1,5 @@
 .MatcheCard__match {
     width: 100%;
-
     margin: auto;
     margin-top: 10px;
     text-align: center;
@@ -9,7 +8,6 @@
     background-color: #204473;
     color: white;
 }
-
 
 .MatcheCard__match_time {
     font-size: small;
@@ -39,9 +37,16 @@
 }
 
 
+/*Media break at 1000px*/
+@media only screen and (max-width: 1200px) {
+    .MatcheCard__match {
+        width: 100%;
+    }
+}
+
 
 /*Media break at 1000px*/
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 950px) {
     .MatcheCard__match {
         width: 100%;
     }
@@ -53,5 +58,17 @@
     .MatcheCard__team_name {
         width: 90px;
         font-size: large;
+    }
+}
+
+/*Media break at 400px*/
+@media only screen and (max-width: 950px) {
+    .MatcheCard__score {
+        font-size: medium;
+        width: 100px;
+    }
+
+    .MatcheCard__team_name {
+        font-size: medium;
     }
 }

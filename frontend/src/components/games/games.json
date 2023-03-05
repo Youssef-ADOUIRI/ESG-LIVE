@@ -1,0 +1,22 @@
+{
+    "fb"	:   "Football" ,
+    "vb"	:   "Volleyball",
+    "bb"	:   "Basketball",
+    "crawl"	:   "Crawl-male",
+    "crawlf":   "Crawl-female",
+    "pap"   :   "Butterfly-male",
+    "papf"  :	"Butterfly-female",
+    "relay" :	"Relay swimming",
+    "pp"	:   "Ping-pong",
+    "te"	:   "Tenis",
+    "race1"	:   "Race 100m male",
+    "race1f":	"Race 100m female",
+    "race4"	:   "Race 400m male",
+    "race4f":	"Race 400m female",
+    "racere":	"Race relay 4 * 100m",
+    "lj"    :	"Long jump male",
+    "ljf"   :	"Long jump female",
+    "sp"    :	"Shot put male",
+    "spf"   :	"Shot put female",
+    "tg"    :	"Tug of war"
+}

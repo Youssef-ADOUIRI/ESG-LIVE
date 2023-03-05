@@ -1,0 +1,6 @@
+/*Media break at 400px*/
+@media only screen and (max-width: 400px) {
+    .global_ranking_table {
+        font-size: small;
+    }
+}

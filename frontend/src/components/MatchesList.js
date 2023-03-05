@@ -3,7 +3,9 @@ import MatcheCard from "./MatcheCard";
 import { Radio, RadioGroup, CircularProgress } from "@mui/material";
 import { StyledFormControlLabel } from "./formControlSubTabs";
 import { MyApiClient } from "../axios_api";
-
+import games_json from "./games/games.json";
+import "./MatchesList.css";
+import Divider from "@mui/material/Divider";
 
 const MatchesList = ({ sport }) => {
   const [listMatches, setListMatches] = useState([]);
@@ -13,8 +15,7 @@ const MatchesList = ({ sport }) => {
 
   useEffect(() => {
     setLoading(true);
-    MyApiClient
-      .get(api_endpoint + (sport ? "/" + sport + "/" + gender : ""))
+    MyApiClient.get(api_endpoint + (sport ? "/" + sport + "/" + gender : ""))
       .then((res) => {
         setListMatches(res.data);
       })
@@ -28,7 +29,7 @@ const MatchesList = ({ sport }) => {
     setGender(e.target.value);
   };
 
-  if (!loading)
+  if (!loading) {
     return (
       <div>
         {sport != "" && (
@@ -65,8 +66,9 @@ const MatchesList = ({ sport }) => {
             </RadioGroup>
           </div>
         )}
-        {listMatches.length % 2 === 0 && listMatches.length > 1 && (
+        {listMatches.length > 1 ? (
           <div className="d-flex flex-wrap">
+            <Divider />
             {listMatches.length % 2 === 0 &&
               listMatches.map((match, i) => {
                 if (i % 2 === 0)
@@ -77,6 +79,8 @@ const MatchesList = ({ sport }) => {
                       team1_score={match.team_score.toString()}
                       team2_name={listMatches[i + 1].team_name}
                       team2_score={listMatches[i + 1].team_score.toString()}
+                      matche_sport={games_json[match.match_sport]}
+                      matche_sexe={match.match_sexe}
                     />
                   );
                 else {
@@ -84,10 +88,12 @@ const MatchesList = ({ sport }) => {
                 }
               })}
           </div>
+        ) : (
+          <strong className="matches_list__no_found">NO MATCHES YET</strong>
         )}
       </div>
     );
-  else {
+  } else {
     return <CircularProgress sx={{ m: 9 }} />;
   }
 };

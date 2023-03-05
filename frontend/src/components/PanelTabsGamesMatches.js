@@ -21,7 +21,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3, pt: 1 }}>
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -85,7 +85,7 @@ const PanelTabsGamesMatches = () => {
   };
 
   return (
-    <Box className="PanelTabsGames__mui_Box" sx={{ width: "auto" }}>
+    <Box className="PanelTabsGames__mui_Box" sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <StyledTabs
           value={value}
@@ -100,7 +100,6 @@ const PanelTabsGamesMatches = () => {
           <StyledTab label="VOLLEYBALL" {...a11yProps(3)} />
           <StyledTab label="TENIS" {...a11yProps(4)} />
           <StyledTab label="PING-PONG" {...a11yProps(5)} />
-          <StyledTab label="TUG OF WAR" {...a11yProps(6)} />
         </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -120,9 +119,6 @@ const PanelTabsGamesMatches = () => {
       </TabPanel>
       <TabPanel value={value} index={5}>
         <MatchesList sport="pp" />
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        <MatchesList sport="tof" />
       </TabPanel>
     </Box>
   );

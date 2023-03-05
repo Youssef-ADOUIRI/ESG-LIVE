@@ -9,9 +9,9 @@ export const PreStyledFormControlLabel = styled((props) => (
     sx={{
       mx: 1,
       ".MuiFormControlLabel-label": {
-        fontFamily: "Roboto , Helvetica , Arial , sans-serif",
+        fontFamily: "Raleway",
         fontSize: "14px",
-        fontWeight: "200",
+        fontWeight: "400",
         margin: "auto",
         padding: "0.5em",
         width: "8em",
