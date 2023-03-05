@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { MyApiClient } from "../axios_api";
 import { CircularProgress } from "@mui/material";
+import './GlobalRanking.css'
 
 const GlobalRanking = () => {
   const url_globalRank = "api/globalrank";
@@ -10,8 +11,7 @@ const GlobalRanking = () => {
 
   useEffect(() => {
     setLoading(true);
-    MyApiClient
-      .get(url_globalRank)
+    MyApiClient.get(url_globalRank)
       .then((res) => {
         setTeams(res.data);
       })
@@ -23,12 +23,12 @@ const GlobalRanking = () => {
 
   if (!loading && teams.length > 0)
     return (
-      <table className="table table-striped" style={{ width: "100%" }}>
+      <table className="table table-striped global_ranking_table" style={{ width: "100%" }}>
         <thead>
           <tr>
             <th>Rank</th>
             <th>Name</th>
-            <th>Full Name</th>
+            <th className="d-table-cell">Full Name</th>
             <th>Pts</th>
           </tr>
         </thead>
@@ -38,7 +38,7 @@ const GlobalRanking = () => {
               <tr>
                 <td>{i + 1}</td>
                 <td>{team.nameTeam.toUpperCase()}</td>
-                <td>
+                <td className=" d-table-cell">
                   {team.fullnameTeam.charAt(0).toUpperCase() +
                     team.fullnameTeam.slice(1)}
                 </td>

@@ -52,7 +52,7 @@ const TugOfWar = () => {
                   <tr>
                     <td className="p-3 font-weight-bold">{i + 1}</td>
                     <td className="p-3">{team.team_name.toUpperCase()}</td>
-                    <td className="p-3 d-none d-sm-table-cell">
+                    <td className="p-3 d-table-cell">
                       {team.team_fullname.charAt(0).toUpperCase() +
                         team.team_fullname.slice(1)}
                     </td>
