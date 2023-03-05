@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Main from "./pages/Main";
+import Ranking from "./pages/Ranking";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Matches from "./pages/Matches";
@@ -10,7 +11,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Main />} />
+          <Route index element={<Ranking />} />
           <Route path="matches" element={<Matches />} />
         </Route>
       </Routes>
