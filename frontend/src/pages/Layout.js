@@ -12,6 +12,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import SocialMedia from "../components/SocialMedia";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   const anchor = "left";
@@ -89,6 +90,7 @@ const Layout = () => {
         <Headeresg />
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 };

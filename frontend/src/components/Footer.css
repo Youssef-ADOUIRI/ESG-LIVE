@@ -1,0 +1,12 @@
+.footer__Sponsors {
+    margin: 40px auto;
+    width: 100vw;
+}
+
+.footer__Sponsors_our {
+    font-weight: 700;
+    text-align: center;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+

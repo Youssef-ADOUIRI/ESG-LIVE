@@ -1,3 +1,13 @@
 * {
-    font-family: 'Raleway', "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: 'Raleway', 'Montserrat', "Roboto", "Helvetica", "Arial", sans-serif;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none;
 }

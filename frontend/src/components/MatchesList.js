@@ -13,15 +13,21 @@ const MatchesList = ({ sport }) => {
   const [gender, setGender] = useState("m");
   const api_endpoint = "api/matches";
 
+  
   useEffect(() => {
+    const api_func = async () => {
+      await MyApiClient.get(
+        api_endpoint + (sport ? "/" + sport + "/" + gender : "")
+      )
+        .then((res) => {
+          setListMatches(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    };
     setLoading(true);
-    MyApiClient.get(api_endpoint + (sport ? "/" + sport + "/" + gender : ""))
-      .then((res) => {
-        setListMatches(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    api_func();
     setLoading(false);
   }, [gender]);
 
