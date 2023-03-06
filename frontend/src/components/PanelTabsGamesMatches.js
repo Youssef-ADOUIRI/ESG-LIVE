@@ -94,7 +94,7 @@ const PanelTabsGamesMatches = () => {
           scrollButtons="auto"
           aria-label="basic tabs example"
         >
-          <StyledTab label="GLOBAL" {...a11yProps(0)} />
+          <StyledTab label="ALL" {...a11yProps(0)} />
           <StyledTab label="FOOTBALL" {...a11yProps(1)} />
           <StyledTab label="BASKETBALL" {...a11yProps(2)} />
           <StyledTab label="VOLLEYBALL" {...a11yProps(3)} />

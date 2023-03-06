@@ -17,6 +17,7 @@
 }
 
 .MatcheCard__score {
+    font-family: 'Montserrat', sans-serif;
     color: white;
     border-radius: 15px;
     font-size: larger;
@@ -34,6 +35,7 @@
 .MatcheCard__team_score,
 .MatcheCard__team_vs {
     font-size: large;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
