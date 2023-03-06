@@ -1,6 +1,12 @@
-.matches_list__no_found {
+.Matches_list__no_found {
     color: #F27C38;
     margin: 17px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+
+.Matches_list__list {
+    padding: 20px;
+    height: 700px;
+    overflow-y: scroll;
 }

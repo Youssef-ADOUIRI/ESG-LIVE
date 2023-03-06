@@ -1,7 +1,7 @@
 import React from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { color } from "@mui/system";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const SocialMedia = () => {
   return (
@@ -11,7 +11,12 @@ const SocialMedia = () => {
           sx={{ minWidth: "7px", color: "#1B91BF", margin: "5px" }}
         />
       </a>
-      <a style={{ textDecoration: "none" }}>
+      <a href="https://www.facebook.com/EngineersSportGames/" style={{ textDecoration: "none" }}>
+        <FacebookIcon
+          sx={{ minWidth: "7px", color: "#1B91BF", margin: "5px" }}
+        />
+      </a>
+      <a href="https://www.linkedin.com/company/engineers-sport-games/" style={{ textDecoration: "none" }}>
         <LinkedInIcon
           sx={{ minWidth: "7px", color: "#1B91BF", margin: "5px" }}
         />

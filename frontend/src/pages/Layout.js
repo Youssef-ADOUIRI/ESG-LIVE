@@ -35,10 +35,10 @@ const Layout = () => {
         alt="logo"
       ></img>
       <List>
-        <ListItem key={"Home"} disablePadding>
+        <ListItem key={"Ranking"} disablePadding>
           <ListItemButton>
-            <Link to={"/"} style={{ textDecoration: "none" }}>
-              <ListItemText primary={"Home"} className="layout__list_item" />
+            <Link to={"/ranking"} style={{ textDecoration: "none" }}>
+              <ListItemText primary={"Ranking"} className="layout__list_item" />
             </Link>
           </ListItemButton>
         </ListItem>
