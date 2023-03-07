@@ -7,6 +7,6 @@
 
 .Matches_list__list {
     padding: 20px;
-    height: 700px;
+    max-height: 700px;
     overflow-y: scroll;
 }
