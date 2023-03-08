@@ -1,0 +1,27 @@
+.landing_page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.landing_page__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    filter: opacity(0.1)
+}
+
+.landing_page__particle_effect {
+    position: absolute;
+}
+
+.landing_page__logoesg {
+    max-width: 120px;
+    padding: 15px 0px;
+}
+
+.landing_page__container__content {}

@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import LandingPage from "./LandingPage";
+import "./Main.css"
 
 const Main = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/matches");
-  }, [navigate]);
-  return <div></div>;
+  return (
+    <div className="main_page">
+      <LandingPage />
+    </div>
+  );
 };
 
 export default Main;

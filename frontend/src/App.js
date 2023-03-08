@@ -10,8 +10,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route index element={<Main />} />
         <Route path="/" element={<Layout />}>
-          <Route index element={<Main />} />
           <Route path="matches" element={<Matches />} />
           <Route path="ranking" element={<Ranking />} />
         </Route>
