@@ -66,7 +66,7 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     textTransform: "none",
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.pxToRem(15),
-    /*marginRight: theme.spacing(1),*/
+    marginRight: theme.spacing(1),
     color: "rgba(0, 0, 0, 0.7)",
     "&.Mui-selected": {
       color: "#1B91BF",
@@ -91,8 +91,7 @@ const PanelTabsGamesMatches = () => {
           value={value}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons="auto"
-          aria-label="basic tabs example"
+          scrollButtons={false}
         >
           <StyledTab label="ALL" {...a11yProps(0)} />
           <StyledTab label="FOOTBALL" {...a11yProps(1)} />

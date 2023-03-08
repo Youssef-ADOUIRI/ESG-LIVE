@@ -89,13 +89,16 @@ const PanelTabsGames = () => {
   };
 
   return (
-    <Box className="PanelTabsGames__mui_Box" sx={{ width: "100%" }}>
+    <Box className="PanelTabsGames__mui_Box">
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <StyledTabs
           value={value}
           onChange={handleChange}
           variant="scrollable"
           scrollButtons="auto"
+          sx={{
+            ".MuiTabs-scrollButtons.Mui-disabled": { opacity: 0.3 },
+          }}
         >
           <StyledTab label="GLOBAL" {...a11yProps(0)} />
           <StyledTab label="FOOTBALL" {...a11yProps(1)} />
