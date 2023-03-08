@@ -12,11 +12,11 @@
     height: 100%;
     background-position: center;
     background-size: cover;
-    filter: opacity(0.1)
+    filter: opacity(0.1);
 }
 
 .landing_page__particle_effect {
-    position: absolute;
+    position: relative;
 }
 
 .landing_page__logoesg {
@@ -24,4 +24,8 @@
     padding: 15px 0px;
 }
 
-.landing_page__container__content {}
+.landing_page__container__content {
+    position: relative;
+    margin-top: 15vh;
+    color: white;
+}

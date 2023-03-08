@@ -1,11 +1,12 @@
 import React from "react";
 import Particle from "../components/effects/Particle";
+import Timer from "../components/Timer";
 import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
     <div className="landing_page">
-      <Particle className="landing_page__particle_effect"/>
+      <Particle className="landing_page__particle_effect" />
       <div
         className="landing_page__img"
         style={{ backgroundImage: "url(./imgs/img_defile.jpg)" }}
@@ -16,8 +17,10 @@ const LandingPage = () => {
           className="landing_page__logoesg"
           alt="logo"
         ></img>
+        <p>THE 4th EDITION</p>
+
         <div className="landing_page__container__content">
-          <p>THE BEST EVENT</p>
+          <Timer />
         </div>
       </div>
     </div>

@@ -1,0 +1,25 @@
+.clock {
+    margin: auto;
+
+}
+
+.clock-container {
+    margin: auto;
+    width: 50vw;
+}
+
+.clock__element {
+    margin: 20px auto;
+}
+
+.clock__element>P {
+    font-family: "Montserrat", sans-serif;
+    font-size: 65px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.clock__element>small {
+    font-weight: 400;
+    text-align: center;
+}
