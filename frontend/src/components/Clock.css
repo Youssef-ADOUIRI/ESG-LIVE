@@ -1,16 +1,31 @@
 .clock {
     margin: auto;
-
 }
 
 .clock-container {
     margin: auto;
-    width: 50vw;
+    width: 70vw;
+    color: white;
 }
 
 .clock__element {
     margin: 20px auto;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
 }
+
+.clock__vl {
+    height: 100px;
+    width: 1px;
+    margin: 0.5rem;
+    background-color: white;
+    opacity: 0.3;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
 
 .clock__element>P {
     font-family: "Montserrat", sans-serif;
@@ -22,4 +37,26 @@
 .clock__element>small {
     font-weight: 400;
     text-align: center;
+}
+
+
+/*Media break at 1000px*/
+@media only screen and (max-width: 1000px) {
+    .clock-container{
+        width: 100%;
+    }
+    .clock__vl {
+        height: 50px;
+    }
+    .clock__element>P {
+        font-size: 35px;
+        font-weight: 400;
+        text-align: center;
+    }
+    
+    .clock__element>small {
+        font-weight: 300;
+        text-align: center;
+    }
+    
 }

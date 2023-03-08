@@ -1,39 +1,46 @@
 import React from "react";
 import { Fragment } from "react";
 import "./Clock.css";
-import Divider from "@mui/material/Divider";
 
-const Clock = ({ clockDays, clockHours, clockMinutes, clockSeconds }) => {
+function Clock({ clockDays, clockHours, clockMinutes, clockSeconds }) {
   return (
     <Fragment>
       <section className="clock-container container">
-        <section className="clock d-flex justify-content-between">
+        <section className="clock d-flex justify-content-center">
+          <div className="clock__vl" />
+
           <div className="clock__days clock__element">
             <p>{clockDays}</p>
             <small>DAYS</small>
           </div>
-          <Divider orientation="vertical" />
+
+          <div className="clock__vl" />
 
           <div className="clock__hours clock__element">
             <p>{clockHours}</p>
             <small>HOURS</small>
           </div>
-          <Divider orientation="vertical" sx={{ my: 1 }} />
+
+          <div className="clock__vl" />
 
           <div className="clock__minutes clock__element">
             <p>{clockMinutes}</p>
             <small>MINUTES</small>
           </div>
-          <Divider orientation="vertical" />
+
+          <div className="clock__vl" />
+
           <div className="clock__seconds clock__element">
             <p>{clockSeconds}</p>
             <small>SECONDS</small>
           </div>
+
+          <div className="clock__vl" />
         </section>
       </section>
     </Fragment>
   );
-};
+}
 
 Clock.defaultProps = {
   clockDays: 0,
