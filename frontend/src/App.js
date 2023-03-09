@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Matches from "./pages/Matches";
 import Main from "./pages/Main";
+import About from "./pages/About";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="matches" element={<Matches />} />
           <Route path="ranking" element={<Ranking />} />
         </Route>
+        <Route path="about" element={<About />} />
       </Routes>
     </Router>
   );

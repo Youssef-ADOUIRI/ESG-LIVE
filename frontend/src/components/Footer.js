@@ -7,7 +7,6 @@ import Sponsors from "./Sponsors";
 const Footer = () => {
   return (
     <footer>
-      
       <Divider sx={{ width: "80vw", mx: "auto", mt: "100px" }} />
       <div className="footer__Sponsors">
         <h2 className="footer__Sponsors_our">OUR SPONSORS</h2>
