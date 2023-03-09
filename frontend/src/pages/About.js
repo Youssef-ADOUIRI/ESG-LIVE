@@ -50,6 +50,13 @@ const About = () => {
                 <br /> DIRECTEUR DE L’EMINES – SCHOOL OF INDUSTRIAL MANAGEMENT
               </small>
             </div>
+            <div className="d-flex">
+              <img
+                src="sponsors/Logos_EMINES.png"
+                className="About_emines"
+                alt="EMINES LOGO"
+              ></img>
+            </div>
           </div>
         </div>
       </div>
