@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Headeresg from "../components/Headeresg";
 import "./Layout.css";
 import { Link, Outlet } from "react-router-dom";
@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -17,6 +16,22 @@ import ListIcon from "@mui/icons-material/List";
 import SportsBaseballOutlinedIcon from "@mui/icons-material/SportsBaseballOutlined";
 
 const Layout = () => {
+  const [isNavShrinked, setNavShrinked] = useState();
+  const shrinkNav = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 250) {
+      setNavShrinked(true);
+    } else {
+      setNavShrinked(false);
+    }
+  };
+
+  useEffect(() => {
+    shrinkNav();
+    // adding the event when scroll change background
+    window.addEventListener("scroll", shrinkNav);
+  });
+
   const anchor = "left";
   const list = () => (
     <Box
@@ -87,7 +102,31 @@ const Layout = () => {
   const [state, setState] = useState(false);
   return (
     <div className="layout_div">
-      <nav className="layout__nav d-flex justify-content-between">
+      <nav
+        className="layout__nav d-flex justify-content-between"
+        style={
+          isNavShrinked
+            ? {
+                height: "55px",
+                width: "100vw",
+                backgroundColor: "#1B91BF",
+                margin: 0,
+                top: 0,
+                right: 0,
+                zIndex: 3,
+              }
+            : {}
+        }
+      >
+        {isNavShrinked && (
+          <Link to="/" style={{ textDecoration: "none" }} className="d-flex">
+            <img
+              src="/logo/Logo-ESG-Blanc.png"
+              className="layout__nav__logoesg_shrinked"
+              alt="logo"
+            ></img>
+          </Link>
+        )}
         <Link to="/" style={{ textDecoration: "none" }}>
           <img
             src="/logo/Logo-ESG.png"
