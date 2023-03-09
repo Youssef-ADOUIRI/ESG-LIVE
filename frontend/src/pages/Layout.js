@@ -29,11 +29,13 @@ const Layout = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <img
-        src="/logo/Logo-ESG.png"
-        className="layout__nav__logoesg__centered"
-        alt="logo"
-      ></img>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <img
+          src="/logo/Logo-ESG.png"
+          className="layout__nav__logoesg__centered"
+          alt="logo"
+        ></img>
+      </Link>
       <List>
         <ListItem key={"Ranking"} disablePadding>
           <ListItemButton>
@@ -71,11 +73,13 @@ const Layout = () => {
   return (
     <div className="layout_div">
       <nav className="layout__nav d-flex justify-content-between">
-        <img
-          src="/logo/Logo-ESG.png"
-          className="layout__nav__logoesg"
-          alt="logo"
-        ></img>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <img
+            src="/logo/Logo-ESG.png"
+            className="layout__nav__logoesg"
+            alt="logo"
+          ></img>
+        </Link>
         <div />
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(true)}>
