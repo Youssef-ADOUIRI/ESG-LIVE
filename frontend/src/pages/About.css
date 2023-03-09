@@ -1,0 +1,52 @@
+.About>h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.About__paragraph1 {
+    margin: 30px !important;
+    max-width: 30vw;
+}
+
+.About__img1 {
+    max-width: 40vw;
+    margin: 30px;
+}
+
+.About__img2 {
+    max-width: 30vw;
+    margin: 30px;
+}
+
+.About__img3 {
+    max-height: 50px;
+    margin: 40px;
+}
+
+.About__vl {
+    height: 100px;
+    width: 5px;
+    margin: 0.5rem;
+    margin-left: 40px;
+    background-color: #204473;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.About_quote {
+    text-align: end;
+}
+
+.About_quote>small {
+    font-size: small;
+}
+
+/*Media break at 1200px*/
+@media only screen and (max-width: 1200px) {
+    .About__img1 {
+        margin: auto;
+    }
+}

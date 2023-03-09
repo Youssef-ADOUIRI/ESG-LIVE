@@ -34,7 +34,8 @@ const LandingPage = () => {
           <p className="lead">Veni, vidi, vici</p>
           <button
             onClick={landing_page_btn}
-            className="landing_page__container__content__btn">
+            className="landing_page__container__content__btn"
+          >
             See Teams
           </button>
         </div>

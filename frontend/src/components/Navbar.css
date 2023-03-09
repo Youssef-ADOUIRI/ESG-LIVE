@@ -20,12 +20,11 @@
 
 .layout__list_item {
     border-radius: 15px;
-    padding: 7px 20px;
+    padding: 4px 15px;
     padding-left: 4px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 
 .layout__list_item:hover {
     border-radius: 20px;
@@ -34,9 +33,15 @@
     color: #1B91BF;
 }
 
+.layout__list_item:active {
+    border-radius: 20px;
+    box-shadow: 0 3px 8px 5px rgba(0, 0, 0, 0.1);
+    background-color: #F2F2F2;
+    color: #1B91BF;
+}
+
 .layout__list_item_text>span {
     font-family: "Montserrat", sans-serif;
-    letter-spacing: 1px;
     color: #5e5e5e;
     font-size: 17px;
     font-weight: 500;
@@ -57,24 +62,18 @@
 
 /*Media break at 1200px*/
 @media only screen and (max-width: 1200px) {
-    .App {
-        margin-right: 40px;
-        margin-left: 40px;
-    }
 
     .layout__nav {
         margin-right: 40px;
         margin-left: 40px;
+        border-bottom-left-radius: .3rem;
+        border-bottom-right-radius: .3rem;
     }
 }
 
 
 /*Media break at 1000px*/
 @media only screen and (max-width: 1000px) {
-    .App {
-        flex-direction: column !important;
-        margin: 0;
-    }
 
     .layout__nav {
         right: 0.1rem;
