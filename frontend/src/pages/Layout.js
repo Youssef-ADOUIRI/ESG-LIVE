@@ -13,6 +13,8 @@ import Box from "@mui/material/Box";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import SocialMedia from "../components/SocialMedia";
 import Footer from "../components/Footer";
+import ListIcon from "@mui/icons-material/List";
+import SportsBaseballOutlinedIcon from "@mui/icons-material/SportsBaseballOutlined";
 
 const Layout = () => {
   const anchor = "left";
@@ -24,6 +26,7 @@ const Layout = () => {
         display: "flex",
         flexDirection: "column",
         height: "100%",
+        padding: "10px",
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
@@ -37,22 +40,34 @@ const Layout = () => {
         ></img>
       </Link>
       <List>
-        <ListItem key={"Ranking"} disablePadding>
-          <ListItemButton>
-            <Link to={"/ranking"} style={{ textDecoration: "none" }}>
-              <ListItemText primary={"Ranking"} className="layout__list_item" />
-            </Link>
-          </ListItemButton>
+        <ListItem key={"Ranking"} disablePadding className="layout__list_item">
+          <Link
+            to={"/ranking"}
+            style={{ textDecoration: "none" }}
+            className="d-flex justify-content-around"
+          >
+            <ListIcon className="layout__list_item_icon" />
+            <ListItemText
+              primary={"Ranking"}
+              className="layout__list_item_text"
+            />
+          </Link>
         </ListItem>
       </List>
-      <Divider />
+      <Divider sx={{ width: "80%", mx: "auto" }} />
       <List>
-        <ListItem key={"Matches"} disablePadding>
-          <ListItemButton>
-            <Link to={"/matches"} style={{ textDecoration: "none" }}>
-              <ListItemText primary={"Matches"} className="layout__list_item" />
-            </Link>
-          </ListItemButton>
+        <ListItem key={"Matches"} disablePadding className="layout__list_item">
+          <Link
+            to={"/matches"}
+            style={{ textDecoration: "none" }}
+            className="d-flex justify-content-around"
+          >
+            <SportsBaseballOutlinedIcon className="layout__list_item_icon" />
+            <ListItemText
+              primary={"Matches"}
+              className="layout__list_item_text"
+            />
+          </Link>
         </ListItem>
       </List>
       <SocialMedia />

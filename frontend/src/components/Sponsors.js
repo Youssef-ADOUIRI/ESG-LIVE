@@ -3,29 +3,33 @@ import "./Sponsors.css";
 
 const Sponsors = () => {
   return (
-    <div className="sponsors d-flex justify-content-center flex-wrap mt-5">
+    <div className="sponsors d-flex justify-content-center flex-wrap">
       <img
-        src="./sponsors/Um6pSOLE.png"
+        src="./sponsors/S.O.L.E Logo.png"
         className="sponsors__container__img"
         alt="UM6P SOLE"
-        style={{ padding: "15px" }}
+        style={{ padding: "10px" }}
       ></img>
       <img
-        src="./sponsors/SidiAli.png"
+        src="./sponsors/logo-sidi-ali-VF.jpg"
         className="sponsors__container__img"
         alt="Sidi Ali"
+        style={{ padding: "30px" }}
       ></img>
       <img
-        src="./sponsors/OCP_Group.png"
+        src="./sponsors/mayaden logo.png"
         className="sponsors__container__img"
-        alt="OCP"
-        style={{ padding: "17px" }}
+        alt="mayaden"
       ></img>
       <img
-        src="./sponsors/Logos_EMINES.png"
+        src="./sponsors/Logo pole sport.png"
         className="sponsors__container__img"
-        alt="EMINES"
-        style={{ padding: "17px" }}
+        alt="Um6p pole sport"
+      ></img>
+      <img
+        src="./sponsors/alpha logo.png"
+        className="sponsors__container__img"
+        alt="Alpha"
       ></img>
     </div>
   );

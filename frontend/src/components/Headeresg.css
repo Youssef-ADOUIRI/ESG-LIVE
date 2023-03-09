@@ -8,6 +8,7 @@
     color: #F2F2F2;
     margin: 0;
     border-radius: .3rem;
+    box-shadow: 0 3px 8px 5px rgba(0, 0, 0, 0.1);
 }
 
 .Headeresg__container__logoesg {

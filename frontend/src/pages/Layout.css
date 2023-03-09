@@ -3,7 +3,10 @@
 }
 
 .layout__nav {
-    margin: 10px 76px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding: 5px 25px;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .layout__nav__logoesg,
@@ -20,7 +23,40 @@
 }
 
 .layout__list_item {
+    border-radius: 15px;
+    padding: 7px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.layout__list_item:hover {
+    border-radius: 20px;
+    box-shadow: 0 3px 8px 5px rgba(0, 0, 0, 0.1);
+    background-color: #F2F2F2;
     color: #1B91BF;
+}
+
+.layout__list_item_text>span {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    color: #5e5e5e;
+    font-size: 17px;
+    font-weight: 500;
+
+}
+
+.layout__list_item:hover .layout__list_item_icon,
+.layout__list_item:hover .layout__list_item_text>span {
+    font-family: "Montserrat", sans-serif;
+    color: #1B91BF;
+}
+
+.layout__list_item_icon {
+    min-width: none;
+    margin: auto 10px;
+    color: #5e5e5e;
+
 }
 
 /*Media break at 1200px*/
