@@ -144,6 +144,19 @@ const AthleticsGameRanking = () => {
               }
               label="shot put female"
             />
+            <FormControlLabel
+              value="mtr"
+              control={
+                <Radio
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#F27C38 ",
+                    },
+                  }}
+                />
+              }
+              label="mini-triathlon"
+            />
           </RadioGroup>
         </div>
         <table
