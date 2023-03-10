@@ -122,6 +122,7 @@ const GameRanking = (prop) => {
                         te.fullnameTeam.slice(1)}
                     </td>
                     <td className="p-3">0</td>
+                    <td className="p-3">0</td>
                   </tr>
                 );
               } else return <></>;
