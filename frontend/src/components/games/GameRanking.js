@@ -81,6 +81,7 @@ const GameRanking = (prop) => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
+              <th>Pts</th>
               <th>MP</th>
             </tr>
           </thead>
@@ -95,6 +96,7 @@ const GameRanking = (prop) => {
                       {team.team_fullname.charAt(0).toUpperCase() +
                         team.team_fullname.slice(1)}
                     </td>
+                    <td className="p-3">{team.points ? team.points : 0}</td>
                     <td className="p-3">
                       {team.matchPlayed ? team.matchPlayed : 0}
                     </td>
