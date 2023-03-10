@@ -66,7 +66,7 @@ def collective_rank(request , sport ,sexe='m'):
         teamsRanking = TeamRanking.objects.filter(sport=sport , sexe=sexe).select_related('teamId').annotate(
             team_name = F('teamId__nameTeam'),
             team_fullname = F('teamId__fullnameTeam'),
-            ).order_by('rank')
+            ).order_by('-totalPoints')
         teamsRanking_serialized = TeamRankingSerializer(teamsRanking , many=True)
         if teamsRanking_serialized.data:
             return JsonResponse(teamsRanking_serialized.data, safe=False)
@@ -87,7 +87,7 @@ def athletic_rank(request , sport ,sexe='m'):
             team_name = F('idteam_id__nameTeam'),
             team_fullname = F('idteam_id__fullnameTeam'),
             total_score = F('score')
-            ).order_by('team_name').order_by('-total_score')
+            ).order_by('team_name').order_by('total_score')
             matchteams_ser = AthleticsRankSerializer(matchteams_data , many=True)
             return JsonResponse(matchteams_ser.data,safe=False)
         else:

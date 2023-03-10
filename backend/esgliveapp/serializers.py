@@ -11,7 +11,8 @@ class TeamSerializer(serializers.ModelSerializer):
                   'fullnameTeam',
                   'colorteam',
                   'descriptionTeam',
-                  'globalRank')
+                  'globalRank',
+                  'totalPoints')
 
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -103,4 +104,5 @@ class TeamRankingSerializer(serializers.ModelSerializer):
                   'sport',
                   'sexe',
                   'rank',
+                  'points',
                   'matchPlayed')

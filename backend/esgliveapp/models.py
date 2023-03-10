@@ -9,6 +9,7 @@ class Team(models.Model):
     colorteam = models.CharField(max_length=20)
     descriptionTeam = models.CharField(max_length=200 , blank=True)
     globalRank = models.IntegerField()
+    totalPoints =  models.IntegerField(blank=True, null=True)
     def __str__(self):
         return "%s" % (self.nameTeam.upper())
 
@@ -51,7 +52,7 @@ class CollectiveMatch(models.Model):
 class DetailsMatch(models.Model):
     teamId = models.ForeignKey(Team , on_delete=models.CASCADE)
     score = models.IntegerField()
-    decidedBy = models.CharField(max_length=2,default='n', choices=[('n' , 'normal') , ('p' , 'penalty or other')])
+    decidedBy = models.CharField(max_length=2,default='n', choices=[('n' , 'normal') , ('p' , 'penalty or other') , ('f' , ' team forfeit')])
     win_lose = models.CharField(max_length=2,choices=[('w' , 'won') , ('l' , 'lost')] , blank=True)
     matchId = models.ForeignKey(CollectiveMatch, on_delete=models.CASCADE)
     captainId = models.ForeignKey(Player ,on_delete=models.SET_NULL , null=True)
@@ -63,6 +64,7 @@ class TeamRanking(models.Model):
     sport = models.CharField(max_length=40 , blank=False)
     sexe =  models.CharField(max_length=2 , blank=False)
     rank = models.IntegerField(blank=True, null=True)
+    points =  models.IntegerField(blank=True, null=True)
     matchPlayed = models.IntegerField(blank=True, null=True)
     def __str__(self):
         return "%s %s%s [%s]" % (self.teamId ,self.sport , self.sexe, self.rank)
