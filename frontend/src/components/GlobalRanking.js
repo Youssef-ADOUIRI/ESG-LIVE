@@ -42,7 +42,7 @@ const GlobalRanking = () => {
                   {team.fullnameTeam.charAt(0).toUpperCase() +
                     team.fullnameTeam.slice(1)}
                 </td>
-                <td>{team.globalRank}</td>
+                <td>{team.totalPoints}</td>
               </tr>
             );
           })}

@@ -25,7 +25,7 @@ def team_list(request):
 
 @api_view(['GET'])
 def global_rank(request):
-    teams = Team.objects.all().order_by('-globalRank','nameTeam')
+    teams = Team.objects.all().order_by('-totalPoints','globalRank','nameTeam')
     teams_serializer = TeamSerializer(teams, many=True)
     return JsonResponse(teams_serializer.data , safe=False)
 
@@ -66,7 +66,7 @@ def collective_rank(request , sport ,sexe='m'):
         teamsRanking = TeamRanking.objects.filter(sport=sport , sexe=sexe).select_related('teamId').annotate(
             team_name = F('teamId__nameTeam'),
             team_fullname = F('teamId__fullnameTeam'),
-            ).order_by('-totalPoints')
+            ).order_by('-points','team_name')
         teamsRanking_serialized = TeamRankingSerializer(teamsRanking , many=True)
         if teamsRanking_serialized.data:
             return JsonResponse(teamsRanking_serialized.data, safe=False)
