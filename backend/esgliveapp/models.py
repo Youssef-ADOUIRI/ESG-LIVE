@@ -62,7 +62,7 @@ class DetailsMatch(models.Model):
 class TeamRanking(models.Model):
     teamId = models.ForeignKey(Team , on_delete=models.CASCADE)
     sport = models.CharField(max_length=40 , blank=False)
-    sexe =  models.CharField(max_length=2 , blank=False)
+    sexe =  models.CharField(max_length=2 , default='m' ,choices=[('m' , 'man') , ('f' , 'woman')] , blank=False)
     rank = models.IntegerField(blank=True, null=True)
     points =  models.IntegerField(blank=True, null=True)
     matchPlayed = models.IntegerField(blank=True, null=True)
