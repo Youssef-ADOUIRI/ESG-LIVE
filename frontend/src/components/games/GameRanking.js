@@ -69,6 +69,7 @@ const GameRanking = (prop) => {
                 />
               }
               label="Female"
+              disabled={sport === "fb"}
             />
           </RadioGroup>
         </div>

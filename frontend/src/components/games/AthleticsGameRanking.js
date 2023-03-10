@@ -78,33 +78,6 @@ const AthleticsGameRanking = () => {
               }
               label="100m female"
             />
-
-            <FormControlLabel
-              value="race4"
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "#F27C38 ",
-                    },
-                  }}
-                />
-              }
-              label="400m male"
-            />
-            <FormControlLabel
-              value="race4f"
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "#F27C38 ",
-                    },
-                  }}
-                />
-              }
-              label="400m female"
-            />
             <FormControlLabel
               value="racere"
               control={
