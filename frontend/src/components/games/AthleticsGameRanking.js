@@ -16,7 +16,7 @@ const AthleticsGameRanking = () => {
 
   let k = 0;
   const [sport, setsport] = useState("race1");
-  let url_sportrank = "api/rank_athletic/" + sport;
+  let url_sportrank = "api/rank_athletic/";
   const url_allTeams = "api/teams";
 
   useEffect(() => {

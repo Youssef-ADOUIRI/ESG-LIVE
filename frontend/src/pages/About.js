@@ -10,7 +10,11 @@ const About = () => {
       <h1>ABOUT ESG</h1>
       <div className="d-flex flex-wrap justify-content-around container lead">
         <div>
-          <img src="imgs/IMG_2075.JPG" className="About__img1" />
+          <img
+            src="imgs/IMG_2075.JPG"
+            className="About__img1"
+            alt="about_img"
+          />
           <div>
             <p className="About__paragraph1">
               Du 16 au 19 Mars 2023 aura lieu la 4ème édition de l’Engineers
@@ -19,9 +23,17 @@ const About = () => {
               polytechnique à la ville verte de Benguerir.
             </p>
             <div className="flex-wrap">
-              <img src="imgs/IMG_2608.JPG" className="About__img2" />
+              <img
+                src="imgs/IMG_2608.JPG"
+                className="About__img2"
+                alt="about_img"
+              />
               <br />
-              <img src="imgs/IMG_2656.JPG" className="About__img2" />
+              <img
+                src="imgs/IMG_2656.JPG"
+                className="About__img2"
+                alt="about_img"
+              />
             </div>
           </div>
         </div>
@@ -35,7 +47,11 @@ const About = () => {
               créant ainsi un rendez vous annuel autour de l’échange, du partage
               et de l’esprit sportif.
             </p>
-            <img src="imgs/IMG_2397.JPG" className="About__img2" />
+            <img
+              src="imgs/IMG_2397.JPG"
+              className="About__img2"
+              alt="about_img"
+            />
             <div className="About_quote">
               <div className=" d-flex">
                 <div className="About__vl" />

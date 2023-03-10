@@ -83,6 +83,7 @@ const Navbar = () => {
           </Link>
         </ListItem>
         <Divider sx={{ width: "80%", mx: "auto" }} />
+
         <ListItem key={"Matches"} disablePadding className="layout__list_item">
           <Link
             to={"/about"}
