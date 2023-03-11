@@ -33,12 +33,12 @@ const Sponsors = () => {
       ></img>
       <img
         src="./sponsors/BMCE.png"
-        className="sponsors__container__img"
+        className="sponsors__container__img "
         alt="BMCE"
       ></img>
       <img
         src="./sponsors/logo-MDJS.png"
-        className="sponsors__container__img"
+        className="sponsors__container__img p-4"
         alt="MDJS"
       ></img>
     </div>
