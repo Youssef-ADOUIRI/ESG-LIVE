@@ -36,6 +36,11 @@ const Sponsors = () => {
         className="sponsors__container__img"
         alt="BMCE"
       ></img>
+      <img
+        src="./sponsors/logo-MDJS.png"
+        className="sponsors__container__img"
+        alt="MDJS"
+      ></img>
     </div>
   );
 };
