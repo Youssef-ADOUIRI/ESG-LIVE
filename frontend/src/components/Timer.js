@@ -9,7 +9,7 @@ const Timer = () => {
 
   let interval = 0;
   const startTimer = () => {
-    const countDownDate = new Date("Mars 17, 2023").getTime();
+    const countDownDate = new Date("2023-03-17 10:00:00").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const diffrence = countDownDate - now;
