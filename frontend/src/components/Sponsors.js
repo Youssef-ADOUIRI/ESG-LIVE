@@ -31,6 +31,11 @@ const Sponsors = () => {
         className="sponsors__container__img"
         alt="Alpha"
       ></img>
+      <img
+        src="./sponsors/BMCE.png"
+        className="sponsors__container__img"
+        alt="BMCE"
+      ></img>
     </div>
   );
 };
