@@ -57,8 +57,7 @@ MIDDLEWARE = [
 ]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'https://esg-olive.vercel.app',
-    'http://localhost:3000'
+    'http://www.engineersportgames.com/',
 )
 
 ROOT_URLCONF = 'backend.urls'
