@@ -54,48 +54,56 @@ const Navbar = () => {
         ></img>
       </Link>
       <List>
-        <ListItem key={"About"} disablePadding className="layout__list_item">
-          <Link
-            to={"/about"}
-            style={{ textDecoration: "none" }}
-            className="d-flex justify-content-around"
-          >
+        <Link
+          to={"/about"}
+          style={{ textDecoration: "none" }}
+          className="d-flex justify-content-around"
+        >
+          <ListItem key={"About"} disablePadding className="layout__list_item">
             <InfoOutlinedIcon className="layout__list_item_icon" />
             <ListItemText
               primary={"About"}
               className="layout__list_item_text"
             />
-          </Link>
-        </ListItem>
+          </ListItem>
+        </Link>
         <Divider sx={{ width: "80%", mx: "auto" }} />
-        <ListItem key={"Ranking"} disablePadding className="layout__list_item">
-          <Link
-            to={"/ranking"}
-            style={{ textDecoration: "none" }}
-            className="d-flex justify-content-around"
+        <Link
+          to={"/ranking"}
+          style={{ textDecoration: "none" }}
+          className="d-flex justify-content-around"
+        >
+          <ListItem
+            key={"Ranking"}
+            disablePadding
+            className="layout__list_item"
           >
             <ListIcon className="layout__list_item_icon" />
             <ListItemText
               primary={"Ranking"}
               className="layout__list_item_text"
             />
-          </Link>
-        </ListItem>
+          </ListItem>
+        </Link>
 
         <Divider sx={{ width: "80%", mx: "auto" }} />
-        <ListItem key={"Matches"} disablePadding className="layout__list_item">
-          <Link
-            to={"/matches"}
-            style={{ textDecoration: "none" }}
-            className="d-flex justify-content-around"
+        <Link
+          to={"/matches"}
+          style={{ textDecoration: "none" }}
+          className="d-flex justify-content-around"
+        >
+          <ListItem
+            key={"Matches"}
+            disablePadding
+            className="layout__list_item"
           >
             <SportsBaseballOutlinedIcon className="layout__list_item_icon" />
             <ListItemText
               primary={"Matches"}
               className="layout__list_item_text"
             />
-          </Link>
-        </ListItem>
+          </ListItem>
+        </Link>
       </List>
       <SocialMedia />
     </Box>

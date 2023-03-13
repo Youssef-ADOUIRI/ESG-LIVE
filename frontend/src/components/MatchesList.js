@@ -40,7 +40,7 @@ const MatchesList = ({ sport }) => {
   if (!loading) {
     return (
       <div>
-        {sport !== "" && (
+        {sport !== "" && sport !== "te" && (
           <div>
             <RadioGroup
               row
@@ -70,6 +70,7 @@ const MatchesList = ({ sport }) => {
                   />
                 }
                 label="Female"
+                disabled={sport === "fb"}
               />
             </RadioGroup>
           </div>

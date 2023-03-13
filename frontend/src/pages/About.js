@@ -40,7 +40,7 @@ const About = () => {
         <div className="d-flex flex-wrap">
           <div>
             <p className="About__paragraph1">
-              Cette 4ème édition verra s’affronter pendant 4 jours 10
+              Cette 4ème édition verra s’affronter pendant 4 jours 12
               délégations d’écoles d’ingénieurs dans différentes disciplines
               sportives. L’ Engineers Sport Games veut devenir, à terme, le
               tournoi sportif majeur des grandes écoles d’ingénieurs au Maroc

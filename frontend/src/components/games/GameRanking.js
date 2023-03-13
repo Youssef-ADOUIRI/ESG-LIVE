@@ -40,39 +40,41 @@ const GameRanking = (prop) => {
   if (!loading)
     return (
       <div>
-        <div>
-          <RadioGroup
-            row
-            name="row-controlled-radio-buttons-group"
-            value={gender}
-            onChange={onChangeGender}
-            sx={{ margin: "10px" }}
-          >
-            <StyledFormControlLabel
-              value="m"
-              control={
-                <Radio
-                  sx={{
-                    display: "none",
-                  }}
-                />
-              }
-              label="Male"
-            />
-            <StyledFormControlLabel
-              value="f"
-              control={
-                <Radio
-                  sx={{
-                    display: "none",
-                  }}
-                />
-              }
-              label="Female"
-              disabled={sport === "fb"}
-            />
-          </RadioGroup>
-        </div>
+        { sport!=='te' &&
+          <div>
+            <RadioGroup
+              row
+              name="row-controlled-radio-buttons-group"
+              value={gender}
+              onChange={onChangeGender}
+              sx={{ margin: "10px" }}
+            >
+              <StyledFormControlLabel
+                value="m"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label="Male"
+              />
+              <StyledFormControlLabel
+                value="f"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label="Female"
+                disabled={sport === "fb"}
+              />
+            </RadioGroup>
+          </div>
+        }
         <table
           className="table table-hover GameRanking__table"
           style={{ width: "100%" }}

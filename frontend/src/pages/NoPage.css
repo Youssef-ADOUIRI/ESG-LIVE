@@ -1,0 +1,45 @@
+.No_page {
+    text-align: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+.No_page__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    filter: opacity(0.1);
+}
+
+.No_page__404 {
+    font-size: 8rem;
+    font-family: "Montserrat", sans-serif;
+    color: #1B91BF;
+}
+
+.No_page__logoesg {
+    max-width: 120px;
+    padding: 15px 0px;
+}
+
+.No_page__nav>p {
+    margin-top: 1.7rem;
+    font-size: 20px;
+}
+
+.No_page__found {
+    color: white;
+    font-size: 2rem;
+    margin-top: 1.7rem;
+}
+
+.No_page__goto{
+    color: #1B91BF;
+    font-family: "Montserrat", sans-serif;
+}
