@@ -39,7 +39,30 @@
     margin-top: 1.7rem;
 }
 
-.No_page__goto{
+.No_page__goto {
     color: #1B91BF;
     font-family: "Montserrat", sans-serif;
+}
+
+/*Media break at 600px*/
+@media only screen and (max-width: 600px) {
+    .No_page__logoesg {
+        margin: auto;
+        margin-top: 0.7rem;
+        text-align: center;
+    }
+
+    .No_page__nav>p {
+        text-align: center;
+        margin: 0.5rem auto;
+    }
+
+
+
+    .No_page__nav {
+        flex-direction: column;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+
 }
