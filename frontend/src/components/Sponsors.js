@@ -4,12 +4,15 @@ import "./Sponsors.css";
 const Sponsors = () => {
   return (
     <div className="sponsors d-flex justify-content-center flex-wrap">
-      <img
-        src="./sponsors/S.O.L.E Logo.png"
-        className="sponsors__container__img"
-        alt="UM6P SOLE"
-        style={{ padding: "10px" }}
-      ></img>
+      <div className="partner">
+        <img
+          src="./sponsors/S.O.L.E Logo.png"
+          className="sponsors__container__img"
+          alt="UM6P SOLE"
+          style={{ padding: "10px" }}
+        ></img>
+        <h4>Official Partner</h4>
+      </div>
       <img
         src="./sponsors/logo-sidi-ali-VF.jpg"
         className="sponsors__container__img"
@@ -36,11 +39,14 @@ const Sponsors = () => {
         className="sponsors__container__img "
         alt="BMCE"
       ></img>
-      <img
-        src="./sponsors/logo-MDJS.png"
-        className="sponsors__container__img p-4"
-        alt="MDJS"
-      ></img>
+      <div className="partner">
+        <img
+          src="./sponsors/logo-MDJS.png"
+          className="sponsors__container__img p-4"
+          alt="MDJS"
+        ></img>
+        <h4>Institutionnel Partner</h4>
+      </div>
     </div>
   );
 };

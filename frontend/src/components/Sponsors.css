@@ -7,11 +7,18 @@
     margin: auto 50px;
 }
 
+.partner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
 /*Media break at 1000px*/
 @media only screen and (max-width: 1000px) {
     .sponsors {
         margin: 10px
     }
+
     .sponsors__container__img {
         height: 100px;
         margin: auto 30px;
