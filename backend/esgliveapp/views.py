@@ -82,7 +82,7 @@ def athletic_rank(request , sport ,sexe='m'):
         sexe_abbr='f'
     try:
         if AthleticsMatchSerializer(AthleticsMatch.objects.filter(athleticsType = sport + sexe_abbr) , many=True).data:
-            ranking_ordre = 'total_score' if sport in ['sp' , 'lj' ] else '-total_score' 
+            ranking_ordre = '-total_score' if sport in ['sp' , 'lj' ] else 'total_score' 
             matchteams_data = AthleticsParticipation.objects.values('idteam_id' , 'idteam_id__nameTeam','idteam_id__fullnameTeam', 'score').filter(idathleticsMatch__athleticsType= sport + sexe_abbr).annotate(
             team_id = F('idteam_id'),
             team_name = F('idteam_id__nameTeam'),
