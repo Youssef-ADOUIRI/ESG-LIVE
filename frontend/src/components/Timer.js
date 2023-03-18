@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Clock from "./Clock";
+import "./Timer.css";
 
 const Timer = () => {
   const [timerDays, setTimerDays] = useState();
@@ -33,14 +34,23 @@ const Timer = () => {
   useEffect(() => {
     startTimer();
   });
-  return (
-    <Clock
-      clockDays={timerDays}
-      clockHours={timerHours}
-      clockMinutes={timerMinutes}
-      clockSeconds={timerSeconds}
-    />
-  );
+  if (timerDays || timerHours || timerMinutes || timerSeconds) {
+    return (
+      <Clock
+        clockDays={timerDays}
+        clockHours={timerHours}
+        clockMinutes={timerMinutes}
+        clockSeconds={timerSeconds}
+      />
+    );
+  } else {
+    return (
+      <div className="timer__welcome__wrapper">
+        <h1 className="timer__welcome">HAPPENING NOW</h1>
+        <hr/>
+      </div>
+    );
+  }
 };
 
 export default Timer;

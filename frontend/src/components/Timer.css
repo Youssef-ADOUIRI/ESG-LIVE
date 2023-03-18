@@ -1,0 +1,17 @@
+.timer__welcome {
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+}
+
+.timer__welcome__wrapper {
+    width: 80vw;
+    text-align: center;
+    margin: auto;
+    color: white;
+}
+
+.timer__welcome__wrapper>hr {
+    width: 250px;
+    margin: 20px auto ;
+}

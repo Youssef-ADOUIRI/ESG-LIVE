@@ -173,8 +173,8 @@ const AthleticsGameRanking = () => {
                 sport === "race1f" ||
                 sport === "racere" ||
                 sport === "mtr"
-                  ? "Distance"
-                  : "Score"}
+                  ? "Timing (ms)"
+                  : "Distance (cm)"}
               </th>
             </tr>
           </thead>
@@ -190,7 +190,7 @@ const AthleticsGameRanking = () => {
                         team.team_fullname.slice(1)}
                     </td>
                     <td className="p-3">
-                      {team.total_score ? team.total_score : 0}
+                      {team.total_score ? team.total_score : "f"}
                     </td>
                   </tr>
                 );
@@ -213,7 +213,7 @@ const AthleticsGameRanking = () => {
                       {te.fullnameTeam.charAt(0).toUpperCase() +
                         te.fullnameTeam.slice(1)}
                     </td>
-                    <td className="p-3">0</td>
+                    <td className="p-3">f</td>
                   </tr>
                 );
               } else return <></>;

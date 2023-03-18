@@ -129,7 +129,7 @@ const SwimingGameRanking = () => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
-              <th>Score</th>
+              <th>{"Timing (ms)"}</th>
             </tr>
           </thead>
           <tbody>
@@ -144,7 +144,7 @@ const SwimingGameRanking = () => {
                         team.team_fullname.slice(1)}
                     </td>
                     <td className="p-3">
-                      {team.total_score ? team.total_score : 0}
+                      {team.total_score ? team.total_score : "f"}
                     </td>
                   </tr>
                 );
@@ -167,7 +167,7 @@ const SwimingGameRanking = () => {
                       {te.fullnameTeam.charAt(0).toUpperCase() +
                         te.fullnameTeam.slice(1)}
                     </td>
-                    <td className="p-3">0</td>
+                    <td className="p-3">f</td>
                   </tr>
                 );
               } else return <></>;
