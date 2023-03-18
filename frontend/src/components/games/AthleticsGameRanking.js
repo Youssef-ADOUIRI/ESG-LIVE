@@ -168,7 +168,14 @@ const AthleticsGameRanking = () => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
-              <th>Score</th>
+              <th>
+                {sport === "race1" ||
+                sport === "race1f" ||
+                sport === "racere" ||
+                sport === "mtr"
+                  ? "Distance"
+                  : "Score"}
+              </th>
             </tr>
           </thead>
           <tbody>
