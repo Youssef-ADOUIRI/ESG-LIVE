@@ -173,7 +173,7 @@ const AthleticsGameRanking = () => {
                 sport === "race1f" ||
                 sport === "racere" ||
                 sport === "mtr"
-                  ? "Timing (ms)"
+                  ? "Timing " + (sport==='mtr'?"(sec)":"(ms)")
                   : "Distance (cm)"}
               </th>
             </tr>
