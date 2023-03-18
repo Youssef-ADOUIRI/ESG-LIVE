@@ -55,7 +55,7 @@ class DetailsMatch(models.Model):
     decidedBy = models.CharField(max_length=2,default='n', choices=[('n' , 'normal') , ('p' , 'penalty or other') , ('f' , ' team forfeit')])
     win_lose = models.CharField(max_length=2,choices=[('w' , 'won') , ('l' , 'lost')] , blank=True)
     matchId = models.ForeignKey(CollectiveMatch, on_delete=models.CASCADE)
-    captainId = models.ForeignKey(Player ,on_delete=models.SET_NULL , blank=True ,null=True)
+    #captainId = models.ForeignKey(Player ,on_delete=models.SET_NULL , blank=True ,null=True)
     def __str__(self):
         return "%s [%s]" % (self.teamId , self.matchId)
 

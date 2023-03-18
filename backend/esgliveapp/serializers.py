@@ -64,8 +64,7 @@ class DetailsMatchSerializer(serializers.ModelSerializer):
                   'score',
                   'decidedBy',
                   'win_lose',
-                  'matchId',
-                  'captainId')
+                  'matchId')
 
 class TeamMatchSerializer(serializers.Serializer):
     team_id = serializers.IntegerField()
