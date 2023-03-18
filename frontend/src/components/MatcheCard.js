@@ -11,10 +11,12 @@ const MatcheCard = (props) => {
         <div className="MatcheCard__team_name">
           {props.team1_name.toUpperCase()}
         </div>
-        <div className="MatcheCard__score d-flex justify-content-around">
-          <div className="MatcheCard__team_score">{props.team1_score}</div>
-          <div className="MatcheCard__team_vs">:</div>
-          <div className="MatcheCard__team_score">{props.team2_score}</div>
+        <div className="MatcheCard__score d-flex flex-column">
+          <div className=" d-flex justify-content-around">
+            <div className="MatcheCard__team_score">{props.team1_score}</div>
+            <div className="MatcheCard__team_vs">:</div>
+            <div className="MatcheCard__team_score">{props.team2_score}</div>
+          </div>
         </div>
 
         <div className="MatcheCard__team_name">
