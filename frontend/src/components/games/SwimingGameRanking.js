@@ -145,7 +145,7 @@ const SwimingGameRanking = () => {
                     </td>
                     <td className="p-3">
                       {team.total_score
-                        ? new Date(team.total_score).toISOString().slice(11, 19)
+                        ? new Date(team.total_score * 10).toISOString().slice(11, 19)
                         : "f"}
                     </td>
                   </tr>
