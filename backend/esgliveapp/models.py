@@ -38,12 +38,12 @@ class AthleticsParticipation(models.Model):
         
 class CollectiveMatch(models.Model):
     collectivePhase = models.IntegerField()
-    collectiveMatchDesc = models.CharField(max_length=200 , blank=True)
+    collectiveMatchDesc = models.CharField(max_length=200 ,blank=True ,null=True)
     sport = models.CharField(max_length=40 , blank=False)
     sexe = models.CharField(max_length=2 , default='m' ,choices=[('m' , 'man') , ('f' , 'woman')] , blank=True)
-    timeLenght = models.IntegerField(blank=True)
+    timeLenght = models.IntegerField(blank=True ,null=True)
     refname = models.CharField(max_length=40,blank=True ,null=True)
-    stage = models.IntegerField(blank=True)
+    stage = models.IntegerField(blank=True ,null=True)
     collectiveMatchDate = models.DateField(default=datetime.date.today)
     collectiveMatchTime = models.TimeField(default=now)
     def __str__(self):
@@ -55,7 +55,7 @@ class DetailsMatch(models.Model):
     decidedBy = models.CharField(max_length=2,default='n', choices=[('n' , 'normal') , ('p' , 'penalty or other') , ('f' , ' team forfeit')])
     win_lose = models.CharField(max_length=2,choices=[('w' , 'won') , ('l' , 'lost')] , blank=True)
     matchId = models.ForeignKey(CollectiveMatch, on_delete=models.CASCADE)
-    captainId = models.ForeignKey(Player ,on_delete=models.SET_NULL , null=True)
+    captainId = models.ForeignKey(Player ,on_delete=models.SET_NULL , blank=True ,null=True)
     def __str__(self):
         return "%s [%s]" % (self.teamId , self.matchId)
 
