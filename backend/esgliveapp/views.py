@@ -82,12 +82,13 @@ def athletic_rank(request , sport ,sexe='m'):
         sexe_abbr='f'
     try:
         if AthleticsMatchSerializer(AthleticsMatch.objects.filter(athleticsType = sport + sexe_abbr) , many=True).data:
+            ranking_ordre = 'total_score' if sport in ['sp' , 'lj' ] else '-total_score' 
             matchteams_data = AthleticsParticipation.objects.values('idteam_id' , 'idteam_id__nameTeam','idteam_id__fullnameTeam', 'score').filter(idathleticsMatch__athleticsType= sport + sexe_abbr).annotate(
             team_id = F('idteam_id'),
             team_name = F('idteam_id__nameTeam'),
             team_fullname = F('idteam_id__fullnameTeam'),
             total_score = F('score')
-            ).order_by('team_name').order_by('total_score')
+            ).order_by('team_name').order_by(ranking_ordre)
             matchteams_ser = AthleticsRankSerializer(matchteams_data , many=True)
             return JsonResponse(matchteams_ser.data,safe=False)
         else:
