@@ -129,7 +129,7 @@ const SwimingGameRanking = () => {
               <th>Rank</th>
               <th>Name</th>
               <th className="d-none d-sm-table-cell">Full Name</th>
-              <th>{"Timing (ms)"}</th>
+              <th>{"Timing"}</th>
             </tr>
           </thead>
           <tbody>
@@ -147,7 +147,7 @@ const SwimingGameRanking = () => {
                       {team.total_score
                         ? new Date(team.total_score * 10)
                             .toISOString()
-                            .slice(17, 22)
+                            .slice(sport !== "relay" ? 17 : 14, 22)
                         : "f"}
                     </td>
                   </tr>
