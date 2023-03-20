@@ -173,7 +173,7 @@ const AthleticsGameRanking = () => {
                 sport === "race1f" ||
                 sport === "racere" ||
                 sport === "mtr"
-                  ? "Timing " + (sport==='mtr'?"(sec)":"(ms)")
+                  ? "Timing " + (sport === "mtr" ? "(sec)" : "(ms)")
                   : "Distance (cm)"}
               </th>
             </tr>
@@ -190,7 +190,16 @@ const AthleticsGameRanking = () => {
                         team.team_fullname.slice(1)}
                     </td>
                     <td className="p-3">
-                      {team.total_score ? team.total_score : "f"}
+                      {team.total_score
+                        ? sport === "race1" ||
+                          sport === "race1f" ||
+                          sport === "racere" ||
+                          sport === "mtr"
+                          ? new Date(team.total_score * 10)
+                              .toISOString()
+                              .slice(14, 22)
+                          : team.total_score
+                        : "f"}
                     </td>
                   </tr>
                 );
