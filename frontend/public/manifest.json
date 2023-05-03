@@ -12,6 +12,12 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
+    ,{
+      "src":"logo/Cercle.png",
+      "sizes":"2143x2143",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ],
   "start_url": "/?source=pwa",
   "display": "standalone",
