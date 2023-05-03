@@ -7,14 +7,14 @@
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },{
-      "src":"ESG_whiteFont.svg",
-      "sizes":"64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src":"logo/circul.png",
+      "sizes":"908x908",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "scope": "/"
+  "background_color": "#ffffff"
 }
