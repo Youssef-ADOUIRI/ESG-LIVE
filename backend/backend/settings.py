@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+from decouple import config
 
 from pathlib import Path
 import os
@@ -21,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a-oq$pol&v7%@f&u8$#7@!^%88fk9_&#6cw$nw^mjs6w5&%d8n'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['.vercel.app']
 
@@ -55,13 +56,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
-    'https://esg-olive.vercel.app',
-    'http://www.engineersportgames.com',
-    'http://engineersportgames.com',
-    'https://www.engineersportgames.com',
-    'https://engineersportgames.com/',
+    # 'https://esg-olive.vercel.app',
+    # 'http://www.engineersportgames.com',
+    # 'http://engineersportgames.com',
+    # 'https://www.engineersportgames.com',
+    # 'https://engineersportgames.com/',
 )
 
 ROOT_URLCONF = 'backend.urls'
@@ -89,23 +90,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'esg4',
-    #     'USER': 'root',
-    #     'PASSWORD': 'root',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    # }
-
     'default': {
-        'ENGINE': "django.db.backends.postgresql_psycopg2",
-        'HOST': "db.tffglacnoqllmvdqktkf.supabase.co",
-        'NAME': "postgres",
-        'USER': "postgres",
-        'PASSWORD': "emines@esg2222",
-        'PORT': "5432",
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'esg4',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
+
+    # 'default': {
+    #     'ENGINE': "django.db.backends.postgresql_psycopg2",
+    #     'HOST': "db.tffglacnoqllmvdqktkf.supabase.co",
+    #     'NAME': "postgres",
+    #     'USER': "postgres",
+    #     'PASSWORD': "emines@esg2222",
+    #     'PORT': "5432",
+    # }
 }
 
 
