@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 import json
 from django.core import serializers
 
-from django.http.response import JsonResponse , HttpResponse
+from django.http.response import JsonResponse , HttpResponse 
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
@@ -10,6 +10,8 @@ from esgliveapp.models import *
 from esgliveapp.serializers import *
 from rest_framework.decorators import api_view
 from django.db.models import Count , Sum , F , FilteredRelation , Q
+
+from decouple import config
 
 # Create your views here.
 def error_404(request, exception):
@@ -148,3 +150,6 @@ def team_name(request, pk):
         return JsonResponse({'message': 'The team does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
 
+@api_view(['GET'])
+def default(request):
+    return redirect(config('WEBSITE_DOMAINE_NAME'))

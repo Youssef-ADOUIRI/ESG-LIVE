@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -56,13 +56,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 CORS_ORIGIN_WHITELIST = (
-    # 'https://esg-olive.vercel.app',
-    # 'http://www.engineersportgames.com',
-    # 'http://engineersportgames.com',
-    # 'https://www.engineersportgames.com',
-    # 'https://engineersportgames.com/',
+    'https://esg-olive.vercel.app',
+    'http://www.engineersportgames.com',
+    'http://engineersportgames.com',
+    'https://www.engineersportgames.com',
+    'https://engineersportgames.com',
 )
 
 ROOT_URLCONF = 'backend.urls'
