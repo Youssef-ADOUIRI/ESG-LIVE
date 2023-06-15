@@ -90,23 +90,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'esg4',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
-
     # 'default': {
-    #     'ENGINE': "django.db.backends.postgresql_psycopg2",
-    #     'HOST': "db.tffglacnoqllmvdqktkf.supabase.co",
-    #     'NAME': "postgres",
-    #     'USER': "postgres",
-    #     'PASSWORD': "emines@esg2222",
-    #     'PORT': "5432",
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'esg4',
+    #     'USER': 'root',
+    #     'PASSWORD': 'root',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
     # }
+
+    'default': {
+        'ENGINE': "django.db.backends.postgresql_psycopg2",
+        'HOST': "db.tffglacnoqllmvdqktkf.supabase.co",
+        'NAME': "postgres",
+        'USER': "postgres",
+        'PASSWORD': config('PASSWORD'),
+        'PORT': config('PORT'),
+    }
 }
 
 
